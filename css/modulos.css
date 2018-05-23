@@ -1,11 +1,13 @@
-.disco {
+.disco,
+.conciertos {
   background-color: #1d1d1d;
   border: 5px solid #B8860B;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .disco h4,
-.disco p {
+.disco p,
+.conciertos p {
     padding: 1rem;
     margin: 0;
     color: white;
@@ -25,4 +27,20 @@
 }
 .disco .submit {
   margin-top: 1.5rem;
+}
+
+
+
+.row:first-child  {
+  font-weight: bold;
+}
+
+.col {
+  border-bottom: 2px solid #B8860B;
+  padding-bottom: 1.5rem;
+}
+
+.row:last-child .col {
+  border-bottom: none;
+  padding-bottom: 0;
 }
