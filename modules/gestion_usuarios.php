@@ -1,7 +1,7 @@
 <?php
 
 include_once "configuracion.inc";
-require "../common.php";
+include_once "./../common.php";
 
 class GestionUsuarios{
 

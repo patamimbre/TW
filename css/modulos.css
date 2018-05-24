@@ -3,14 +3,18 @@
   background-color: #1d1d1d;
   border: 5px solid #B8860B;
   padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem !important;
 }
-
 .disco h4,
 .disco p,
 .conciertos p {
-    padding: 1rem;
+    padding: 0.8rem;
     margin: 0;
     color: white;
+}
+
+.disco p {
+  font-size: 1.1rem;
 }
 
 .disco .anio {
@@ -22,8 +26,8 @@
 }
 
 .disco .lista-canciones,
-.disco .caratula {
-  padding-left: 3%;
+.disco {
+  padding: 0 3% 0 3%;
 }
 .disco .submit {
   margin-top: 1.5rem;
@@ -31,16 +35,16 @@
 
 
 
-.row:first-child  {
+.conciertos .row:first-child  {
   font-weight: bold;
 }
 
-.col {
+.conciertos .col {
   border-bottom: 2px solid #B8860B;
   padding-bottom: 1.5rem;
 }
 
-.row:last-child .col {
+.conciertos .row:last-child .col {
   border-bottom: none;
   padding-bottom: 0;
 }
