@@ -13,7 +13,7 @@ $result = $conciertos->to_array();
 <head>
   <meta charset="utf-8">
   <title>Julio Iglesias</title>
-  <link rel="stylesheet" href="./../css/modulos.css">
+  <link rel="stylesheet" href="./../css/main.css">
   <link rel="stylesheet" href="https://unpkg.com/wingcss" />
 </head>
 
@@ -38,9 +38,9 @@ $result = $conciertos->to_array();
           </div>
           <div class="col-7 container lista-canciones">
 
-          
+
           <?php foreach ($disco['canciones'] as $cancion): ?>
-            
+
             <div class="row cancion">
               <div class="col nombre">
                 <p><?php echo escape($cancion["nombre"]);?></p>

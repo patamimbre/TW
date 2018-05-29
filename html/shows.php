@@ -13,12 +13,16 @@ $result = $conciertos->to_array();
   <head>
     <meta charset="utf-8">
     <title>Julio Iglesias</title>
-    <link rel="stylesheet" href="./../css/modulos.css">
+    <link rel="stylesheet" href="./../css/main.css">
     <link rel="stylesheet" href="https://unpkg.com/wingcss" />
   </head>
 
   <body>
     <div class="main container">
+
+      <div class="buscador container">
+        <input id="searchInput" onKeyUp="search()" type="text" placeholder="ej:2018-06-12">
+      </div>
 
       <div class="conciertos container">
         <div class="row">
@@ -34,7 +38,7 @@ $result = $conciertos->to_array();
         </div>
 
         <?php foreach ($result as $row): ?>
-        <div class="row">
+        <div class="row concierto">
           <div class="col center fecha">
             <p>
               <?php echo escape($row['fecha']); ?>
@@ -58,5 +62,7 @@ $result = $conciertos->to_array();
 
     </div>
   </body>
+
+  <script src="./../js/shows.js"></script>
 
   </html>
