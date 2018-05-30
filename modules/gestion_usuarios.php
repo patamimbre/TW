@@ -71,30 +71,33 @@ class GestionUsuarios{
 	 PUEDEN SER USADAS POR ADMINISTRADORES */
 
 	public function addUser($user){
-		if (isset($_SESSION['email'])){
-			if ($this->isAdmin($_SESSION['email'])){
-				$user['pass'] = password_hash($user['pass'], PASSWORD_DEFAULT);
-				$sql = sprintf(
-				"INSERT INTO %s (%s) values (%s)",
-				"usuarios",
-				implode(", ", array_keys($user)),
-				":" . implode(", :", array_keys($user))
-				);
 
-				# No es necesario validar los datos introducidos,
-				# PDO se encarga de hacerlo automáticamente
-				try{
-					$state = $this->connection->prepare($sql);
-					$state->execute($user);
-					return true;
-				} catch (PDOException $error){
-					return false;
-				}
-			} else {
-				echo "<br> Acción no permitida </br>";
-			}
-		} else {
-			echo "<br> No logueado </br>";
+		$user['pass'] = password_hash($user['pass'], PASSWORD_DEFAULT);
+		if (empty($user['telefono'])){
+			$user['telefono'] = 0;
+		}
+
+
+		$sql = "INSERT INTO usuarios
+		(nombre,apellidos,email,telefono,pass,role)
+		VALUES
+		(:nombre, :apellidos, :email, :telefono, :pass, 0);";
+
+		# No es necesario validar los datos introducidos,
+		# PDO se encarga de hacerlo automáticamente
+		try{
+			$state = $this->connection->prepare($sql);
+			$state->bindParam(':nombre',$user['nombre']);
+			$state->bindParam(':apellidos',$user['apellidos']);
+			$state->bindParam(':email',$user['email']);
+			$state->bindParam(':telefono',$user['telefono']);
+			$state->bindParam(':pass',$user['pass']);
+			$state->execute();
+
+
+			return true;
+		} catch (PDOException $error){
+			return false;
 		}
 	}
 
@@ -129,7 +132,8 @@ class GestionUsuarios{
 					return $state->fetchAll();
 				} catch (PDOException $e) {
 					return false;
-
+				}	catch (PDOStatement $e) {
+					return false;
 				}
 			} else {
 				echo "<br> Acción no permitida </br>";
@@ -225,6 +229,7 @@ HTML;
 	public function modifyUser($user){
 		if (isset($_SESSION['email'])){
 			if ($this->isAdmin($_SESSION['email'])){
+				$user['pass'] = password_hash($user['pass'], PASSWORD_DEFAULT);
 				$sql = "UPDATE usuarios
 		            SET
 		              nombre = :nombre,

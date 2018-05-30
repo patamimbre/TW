@@ -20,6 +20,10 @@ $result = $conciertos->to_array();
 <body>
   <div class="main container">
 
+    <div class="buscador container">
+      <input id="searchInput" onKeyUp="search()" type="text" placeholder="Título o canción">
+    </div>
+
     <?php foreach ($result as $disco): ?>
 
     <form class="discos container" action="./../formularios/compra_disco.php" method="GET">
@@ -67,5 +71,7 @@ $result = $conciertos->to_array();
 
   </div>
 </body>
+
+<script src="./../js/music.js"></script>
 
 </html>
