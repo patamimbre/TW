@@ -20,7 +20,7 @@ $admin_user = array(
 $gestion = new GestionUsuarios();
 
 //$gestion->login('juan@ugr.es','gato');
-$gestion->logout();
+//$gestion->logout();
 
 $gestion->login($admin_user['email'], $admin_user['pass']);
 /*

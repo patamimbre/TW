@@ -102,13 +102,13 @@ class GestionUsuarios{
 	}
 
 
-	public function deleteUser($email){
+	public function deleteUser($id){
 		if (isset($_SESSION['email'])){
 			if ($this->isAdmin($_SESSION['email'])){
-				$sql = "DELETE FROM usuarios where email = :email";
+				$sql = "DELETE FROM usuarios where ID = :id";
 				try{
 					$state = $this->connection->prepare($sql);
-					$state->bindParam(':email',$email);
+					$state->bindParam(':id',$id);
 					$state->execute();
 				} catch (PDOException $error){
 					echo $sql . "<br>" . $error->getMessage();
