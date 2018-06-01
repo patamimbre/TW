@@ -81,7 +81,7 @@ class GestionConciertos{
                 SET
                     fecha = :fecha,
                     hora = :hora,
-                    localizacion = :localizacion,
+                    localizacion = :localizacion
                 WHERE id = :id";
         try{
             $statement = $this->connection->prepare($sql);
@@ -89,6 +89,41 @@ class GestionConciertos{
         } catch(PDOException $error) {
             return false;
         }
+    }
+
+    public function search($param){
+        $sql = "SELECT * FROM conciertos
+                WHERE fecha LIKE '%:param%'
+                OR localizacion LIKE '%:param%'";
+    
+        try{
+          $state = $this->connection->prepare($sql);
+          $state->bindParam(':param', $param);
+          $state->execute();
+    
+          $result = $state->fetchAll();
+          print_r($result);
+    
+        } catch (PDOException $error){
+          echo "<br>Error <br> " . $error->getMessage();
+        }
+    
+      }
+    
+    public function to_array(){
+    $sql = "SELECT * FROM conciertos
+            ORDER BY fecha ASC";
+
+    try{
+        $state = $this->connection->prepare($sql);
+        $state->execute();
+
+        return $state->fetchAll();
+
+    } catch (PDOException $error){
+        echo "<br>Error <br> " . $error->getMessage();
+    }
+
     }
 
 

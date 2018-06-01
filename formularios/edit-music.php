@@ -1,38 +1,32 @@
 <?php
 
-require './../modules/gestion_usuarios.php';
+require './../modules/gestion_discos.php';
 //require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/mysite/php/includes/dbconn.inc');
-include ("./../test.php");
-
-$result = $gestion->registeredUsers();
+//include ("./../test.php");
+$gestion = new GestionDiscos;
+$result = $gestion->all();
 
 ?>
 
-<h2>Update users</h2>
+<h2>Editar discos</h2>
 <?php if ($result) : ?>
 <table>
   <thead>
     <tr>
       <th>#</th>
       <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Email</th>
-      <th>Teléfono</th>
-      <th>Pass</th>
-      <th>Rol</th>
+      <th>Año</th>
+      <th>Precio</th>
     </tr>
   </thead>
     <tbody>
     <?php foreach ($result as $row) : ?>
       <tr>
-        <td><?php echo escape($row["ID"]); ?></td>
+        <td><?php echo escape($row["id"]); ?></td>
         <td><?php echo escape($row["nombre"]); ?></td>
-        <td><?php echo escape($row["apellidos"]); ?></td>
-        <td><?php echo escape($row["email"]); ?></td>
-        <td><?php echo escape($row["telefono"]); ?></td>
-        <td><?php echo escape($row["pass"]); ?></td>
-        <td><?php echo escape($row["role"]); ?> </td>
-        <td><a href="update-single-user.php?id=<?php echo escape($row["ID"]); ?>">Edit</a></td>
+        <td><?php echo escape($row["anio_publicacion"]); ?></td>
+        <td><?php echo escape($row["precio"]); ?></td>
+        <td><a href="update-single-music.php?id=<?php echo escape($row["id"]); ?>">Edit</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>

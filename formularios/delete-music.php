@@ -1,27 +1,27 @@
 <?php
 
-require './../modules/gestion_usuarios.php';
+require './../modules/gestion_discos.php';
 //require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/mysite/php/includes/dbconn.inc');
-include ("./../test.php");
+//include ("./../test.php");
 
-$gestion = new GestionUsuarios();
+$gestion = new GestionDiscos();
 $success = "";
 
 if (isset($_GET["id"])) {
-  if ($gestion->deleteUser($_GET["id"])){
-    $success = "Usuario eliminado correctamente";
+  if ($gestion->delete($_GET["id"])){
+    $success = "Disco eliminado correctamente";
   } else {
-    $success = "Error al eliminar usuario";
+    $success = "Error al eliminar disco";
   }
 }
 
-$result = $gestion->registeredUsers();
+$result = $gestion->all();
 
 //echo "<br>".."<br>";
 
 ?>
 
-<h2>Delete users</h2>
+<h2>Eliminar discos</h2>
 
 <?php if ($success) echo $success; ?>
 
@@ -31,24 +31,18 @@ $result = $gestion->registeredUsers();
     <tr>
       <th>#</th>
       <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Email</th>
-      <th>Teléfono</th>
-      <th>Pass</th>
-      <th>Rol</th>
+      <th>Año</th>
+      <th>Precio</th>
     </tr>
   </thead>
     <tbody>
     <?php foreach ($result as $row) : ?>
       <tr>
-        <td><?php echo escape($row["ID"]); ?></td>
+        <td><?php echo escape($row["id"]); ?></td>
         <td><?php echo escape($row["nombre"]); ?></td>
-        <td><?php echo escape($row["apellidos"]); ?></td>
-        <td><?php echo escape($row["email"]); ?></td>
-        <td><?php echo escape($row["telefono"]); ?></td>
-        <td><?php echo escape($row["pass"]); ?></td>
-        <td><?php echo escape($row["role"]); ?> </td>
-        <td><a href="delete-user.php?id=<?php echo escape($row["ID"]); ?>">Remove</a></td>
+        <td><?php echo escape($row["anio_publicacion"]); ?></td>
+        <td><?php echo escape($row["precio"]); ?></td>
+        <td><a href="delete-music.php?id=<?php echo escape($row["id"]); ?>">Remove</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>

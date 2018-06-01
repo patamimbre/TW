@@ -1,8 +1,8 @@
 <?php
 
-require './../modules/discos.php';
+require './../modules/gestion_discos.php';
 
-$conciertos = new Discos();
+$conciertos = new GestionDiscos();
 $result = $conciertos->to_array();
 
 ?>

@@ -35,7 +35,22 @@ class GestionDiscos{
     }
 
     public function delete($id){
+        $sql = "DELETE from canciones 
+                WHERE id_disco = :id;
+                DELETE from discos 
+                WHERE id = :id;";
+        
+        try {
+            $state = $this->connection->prepare($sql);
+            $state->bindParam(':id', $id);
+            $state->execute();
 
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        } catch (PDOStatement $e) {
+            return false;
+        }        
     }
 
     public function get($id){
@@ -45,6 +60,37 @@ class GestionDiscos{
     public function modify($disco){
         
     }
+
+    public function to_array(){
+        $sql = "SELECT * FROM discos
+                ORDER BY anio_publicacion DESC";
+    
+        try{
+          $state = $this->connection->prepare($sql);
+          $state->execute();
+    
+          $discos = $state->fetchAll();
+    
+          $sql = "SELECT * FROM canciones
+                  WHERE id_disco=:id
+                  ORDER BY posicion ASC";
+          foreach ($discos as &$disk) {
+            $state = $this->connection->prepare($sql);
+            $state->bindParam(":id", $disk['id']);
+            $state->execute();
+    
+            $disk['canciones'] = $state->fetchAll();
+          }
+    
+          return $discos;
+    
+    
+    
+        } catch (PDOException $error){
+          return false;
+        }
+    
+      }
 
 
 

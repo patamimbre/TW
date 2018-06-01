@@ -1,8 +1,8 @@
 <?php
 
-require './../modules/conciertos.php';
+require './../modules/gestion_conciertos.php';
 
-$conciertos = new Conciertos();
+$conciertos = new GestionConciertos();
 $result = $conciertos->to_array();
 
 ?>
