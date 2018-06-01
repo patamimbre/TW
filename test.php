@@ -1,6 +1,6 @@
 <?php
 
-//require_once "./modules/gestion_usuarios.php";
+include_once "./modules/gestion_usuarios.php";
 
 $normal_user = array(
 	"nombre" => 'Antonio',

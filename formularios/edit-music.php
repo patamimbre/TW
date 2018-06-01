@@ -8,7 +8,7 @@ $result = $gestion->registeredUsers();
 
 ?>
 
-<h2>Editar Usuarios</h2>
+<h2>Update users</h2>
 <?php if ($result) : ?>
 <table>
   <thead>

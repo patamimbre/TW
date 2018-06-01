@@ -25,10 +25,10 @@ if (isset($_POST['submit'])) {
 
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
-    <blockquote><?php echo escape($_POST['email']); ?> añadido correctamente.</blockquote>
+    <blockquote><?php echo escape($_POST['email']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
-  <h2>Añadir un usuario</h2>
+  <h2>Add a user</h2>
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
@@ -46,3 +46,4 @@ if (isset($_POST['submit'])) {
   </form>
 
   <a href="./../html/admin_options.html">Volver a la página de admin</a>
+

@@ -132,7 +132,7 @@ class GestionUsuarios{
 					return $state->fetchAll();
 				} catch (PDOException $e) {
 					return false;
-				}	catch (PDOStatement $e) {
+				} catch (PDOStatement $e) {
 					return false;
 				}
 			} else {
@@ -255,6 +255,7 @@ HTML;
 	}
 
 	/*
+		Los usuarios del tipo 2 son Gestores de compras
 		Los usuarios del tipo 1 son ADMINISTRADORES
 		Los usuarios del tipo 0 son usuarios normales
 	*/
