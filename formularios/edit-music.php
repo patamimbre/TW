@@ -5,7 +5,6 @@ require './../modules/gestion_discos.php';
 //include ("./../test.php");
 $gestion = new GestionDiscos;
 $result = $gestion->all();
-
 ?>
 
 <h2>Editar discos</h2>
