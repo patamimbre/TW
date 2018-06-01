@@ -17,8 +17,6 @@ if (isset($_GET["id"])) {
 
 $result = $gestion->all();
 
-//echo "<br>".."<br>";
-
 ?>
 
 <h2>Eliminar discos</h2>
