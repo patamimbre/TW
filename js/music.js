@@ -1,3 +1,4 @@
+
 function search() {
   input = document.getElementById('searchInput').value;
   var discos =
@@ -38,4 +39,3 @@ function search() {
 
   //console.log(canciones);
 }
-

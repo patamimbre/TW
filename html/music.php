@@ -2,12 +2,11 @@
 
 require './../modules/gestion_discos.php';
 
-$conciertos = new GestionDiscos();
-$result = $conciertos->to_array();
+$gestion = new GestionDiscos();
+$result = $gestion->to_array();
 
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
-  <div class="main container">
 
     <div class="buscador container center">
       <input id="searchInput" onKeyUp="search()" type="text" placeholder="Título o canción">
@@ -15,7 +14,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
     <?php foreach ($result as $disco): ?>
 
-    <form class="discos container" action="./../formularios/compra_disco.php" method="GET">
+    <form class="discos container" action="./../formularios/compra.php" method="POST">
       <div class="disco container">
         <div class="row">
           <div class="col-9 center titulo">
@@ -43,14 +42,18 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
               </div>
             </div>
 
-          <?php endforeach; ?>
+          <?php endforeach; 
+          
+          echo '<input type="hidden" name="id" value="'.$disco['id'].'" >';
+          
+          ?>
 
-
+          
 
           </div>
         </div>
         <div class="row center submit">
-          <button type="submit" value="submit">Comprar</button>
+          <button class="submit" type="submit" value="submit">Comprar</button>
         </div>
       </div>
     </form>
@@ -60,7 +63,6 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
   </div>
 
-<script src="./../js/music.js"></script>
 
 <?php
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";

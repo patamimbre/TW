@@ -8,8 +8,6 @@ $result = $conciertos->to_array();
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
-    <div class="main container">
-
       <div class="buscador container center">
         <input id="searchInput" onKeyUp="search()" type="text" placeholder="ej:2018-06-12">
       </div>
@@ -48,8 +46,6 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
         <?php endforeach; ?>
 
       </div>
-    </div>
-
     </div>
 
   <script src="./../js/shows.js"></script>

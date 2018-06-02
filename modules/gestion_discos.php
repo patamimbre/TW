@@ -54,7 +54,19 @@ class GestionDiscos{
     }
 
     public function get($id){
+        $sql = "SELECT * FROM discos
+                WHERE id = :id";
 
+        try {
+            $state = $this->connection->prepare($sql);
+            $state->bindParam(':id', $id);
+            $state->execute();
+            return $state->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        } catch (PDOStatement $e) {
+            return false;
+        }        
     }
 
     public function modify($disco){
