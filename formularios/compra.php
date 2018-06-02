@@ -28,7 +28,7 @@
 	</head>
 	<body>
 
-		<form onsubmit="return checkForm();" action="resultados.php" method="POST">
+		<form onsubmit="return checkForm();" action="confirmar.php" method="POST">
 			<fieldset>
 				<div class="row">
 					<legend>Información Personal</legend>
@@ -72,9 +72,9 @@
 				</div>
 				<div class="row left">
 				    <label for="">Disco Seleccionado</label>
-					<input type="text" name="disco" value="<?=$disco['nombre']?>" readonly/>
+					<input type="text" name="disco" value="<?=escape($disco['nombre'])?>" readonly/>
 					<label for="">Precio</label>
-					<input type="text" name="precio" value="<?=$disco['precio'];?>" readonly/>
+					<input type="text" name="precio" value="<?=escape($disco['precio']);?>" readonly/>
 				</div>
 				</div>
 				<div class="row">
@@ -119,6 +119,9 @@
 		</form>
 	</body>
 </html>
+
+<script src="./../js/compra.js"></script>
+
 
 <?php
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
