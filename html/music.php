@@ -5,22 +5,11 @@ require './../modules/gestion_discos.php';
 $conciertos = new GestionDiscos();
 $result = $conciertos->to_array();
 
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title>Julio Iglesias</title>
-  <link rel="stylesheet" href="./../css/main.css">
-  <link rel="stylesheet" href="https://unpkg.com/wingcss" />
-</head>
-
-<body>
   <div class="main container">
 
-    <div class="buscador container">
+    <div class="buscador container center">
       <input id="searchInput" onKeyUp="search()" type="text" placeholder="Título o canción">
     </div>
 
@@ -70,8 +59,9 @@ $result = $conciertos->to_array();
     <?php endforeach; ?>
 
   </div>
-</body>
 
 <script src="./../js/music.js"></script>
 
-</html>
+<?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+?>

@@ -21,6 +21,7 @@ if (isset($_POST['submit'])) {
   $statement = $gestion->addUser($new_user);
 
 }
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 
@@ -45,4 +46,6 @@ if (isset($_POST['submit'])) {
     <input type="submit" name="submit" value="Submit">
   </form>
 
-  <a href="./../html/admin_options.html">Volver a la página de admin</a>
+<?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+?>

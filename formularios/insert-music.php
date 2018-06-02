@@ -30,6 +30,8 @@ if (isset($_POST['submit'])) {
   $statement = $gestion->add($new_disk, $songs);
 
 }
+
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 
@@ -66,8 +68,6 @@ if (isset($_POST['submit'])) {
     <input type="submit" name="submit" value="Submit">
   </form>
 
-  <a href="./../html/admin_options.html">Volver a la página de admin</a>
-
 
   <!-- Poner en footer !!! -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -92,3 +92,9 @@ if (isset($_POST['submit'])) {
           })
       });
   </script>
+
+
+
+  <?php
+  include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+  ?>

@@ -110,8 +110,9 @@ class GestionUsuarios{
 					$state = $this->connection->prepare($sql);
 					$state->bindParam(':id',$id);
 					$state->execute();
+				return true;
 				} catch (PDOException $error){
-					echo $sql . "<br>" . $error->getMessage();
+					return false;
 				}
 			} else {
 				echo "<br> Acción no permitida </br>";
@@ -238,7 +239,8 @@ HTML;
 		              telefono = :telefono,
 		              pass = :pass,
 		              role = :role
-		            WHERE id = :id";
+					WHERE id = :id";
+				echo "<br>$sql<br>";
 				try{
 			  	$statement = $this->connection->prepare($sql);
 			  	return $statement->execute($user);

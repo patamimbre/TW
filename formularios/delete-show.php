@@ -17,11 +17,11 @@ if (isset($_GET["id"])) {
 
 $result = $gestion->all();
 
-//echo "<br>".."<br>";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 
 ?>
 
-<h2>Delete users</h2>
+<h2>Eliminar conciertos</h2>
 
 <?php if ($success) echo $success; ?>
 
@@ -51,4 +51,6 @@ $result = $gestion->all();
 <?php else : ?>
   <p>Debes ser administrador para realizar esta acción</p>
 
-<?php endif; ?>
+<?php endif; 
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+?>

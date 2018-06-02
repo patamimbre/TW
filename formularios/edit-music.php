@@ -5,6 +5,8 @@ require './../modules/gestion_discos.php';
 //include ("./../test.php");
 $gestion = new GestionDiscos;
 $result = $gestion->all();
+
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <h2>Editar discos</h2>
@@ -34,4 +36,5 @@ $result = $gestion->all();
 <?php else : ?>
   <p>Debes ser administrador para realizar esta acción</p>
 
-<?php endif; ?>
+<?php endif; 
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";?>

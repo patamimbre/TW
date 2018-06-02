@@ -17,11 +17,10 @@ if (isset($_GET["id"])) {
 
 $result = $gestion->registeredUsers();
 
-//echo "<br>".."<br>";
-
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
-<h2>Delete users</h2>
+<h2>Borrar usuario</h2>
 
 <?php if ($success) echo $success; ?>
 
@@ -57,4 +56,6 @@ $result = $gestion->registeredUsers();
 <?php else : ?>
   <p>Debes ser administrador para realizar esta acción</p>
 
-<?php endif; ?>
+<?php endif; 
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+?>

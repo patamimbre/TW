@@ -6,7 +6,7 @@ require './../modules/gestion_conciertos.php';
 
 $conciertos = new GestionConciertos();
 $result = $conciertos->all();
-
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <h2>Editar Conciertos</h2>
@@ -36,4 +36,5 @@ $result = $conciertos->all();
 <?php else : ?>
   <p>Debes ser administrador para realizar esta acción</p>
 
-<?php endif; ?>
+<?php endif; 
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";?>

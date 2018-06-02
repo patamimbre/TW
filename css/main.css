@@ -1,5 +1,7 @@
 header,
-nav a {
+nav a,
+footer,
+body {
   background-color: #1d1d1d;
   color: white;
 }
@@ -19,6 +21,9 @@ h1 {
   background: white;
 }
 
+.main {
+  padding: 3rem;
+}
 
 .disco,
 .conciertos,
@@ -82,4 +87,25 @@ button:hover {
 .conciertos .row:last-child .col {
   border-bottom: none;
   padding-bottom: 0;
+}
+
+.buscador{
+  padding:1.6rem;
+}
+.buscador > input {
+  background: white;
+  color: black;
+  box-shadow: 0 0 1.6rem #B8860B;
+}
+
+
+
+
+
+
+
+
+
+footer {
+  height: 6rem;
 }

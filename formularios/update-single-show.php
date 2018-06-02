@@ -34,6 +34,8 @@ if (isset($_GET['id'])) {
     echo "Something went wrong!";
     exit;
 }
+
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
@@ -56,3 +58,7 @@ if (isset($_GET['id'])) {
 
 <button onclick="location.href='./edit-show.php'" type="button">
      Volver</button>
+
+<?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+?>

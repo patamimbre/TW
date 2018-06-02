@@ -5,7 +5,7 @@ require './../modules/gestion_usuarios.php';
 include ("./../test.php");
 
 $result = $gestion->registeredUsers();
-
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <h2>Editar Usuarios</h2>
@@ -41,4 +41,5 @@ $result = $gestion->registeredUsers();
 <?php else : ?>
   <p>Debes ser administrador para realizar esta acción</p>
 
-<?php endif; ?>
+<?php endif; 
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";?>

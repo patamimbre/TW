@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
-    <link rel="stylesheet" href="./../css/main.css"/>
-  </head>
-  <body>
+<?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+?>
+
+
     <div class="main container">
       <div class="acciones container ">
         <h5 class="row center titulo">Usuarios</h5>
@@ -56,6 +52,6 @@
       </div>
     </div>
 
-
-  </body>
-</html>
+<?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+?>

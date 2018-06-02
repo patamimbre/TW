@@ -32,7 +32,7 @@ class GestionConciertos{
 
     public function add($concierto){
         $sql = "INSERT INTO conciertos
-		(fecha,hora,localización)
+		(fecha,hora,localizacion)
 		VALUES
 		(:fecha, :hora, :localizacion);";
 
