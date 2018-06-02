@@ -69,7 +69,6 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
   </form>
 
 
-  <!-- Poner en footer !!! -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
       $(document).ready(function() {

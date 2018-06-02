@@ -75,13 +75,20 @@ button:hover {
 
 
 
-.conciertos .row:first-child  {
+.conciertos .row:first-child
+ {
   font-weight: bold;
 }
 
-.conciertos .col {
+.conciertos .col ,
+#records td,
+#records th{
   border-bottom: 2px solid #B8860B;
   padding-bottom: 1.5rem;
+}
+
+#records td {
+  padding: 1rem 1.5rem;
 }
 
 .conciertos .row:last-child .col {
@@ -99,6 +106,13 @@ button:hover {
 }
 
 
+#bio p {
+  text-align: center;
+}
+
+#bio img {
+  padding: 1.5rem;
+}
 
 
 

@@ -13,20 +13,8 @@
 
 	include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
+<script src="./../js/compra.js"></script>
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Revistas!</title>
-		<link rel="stylesheet" type="text/css" href="main.css"/>
-		<link rel="stylesheet" href="https://unpkg.com/wingcss"/>
-		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript" src="form.js"></script>
-	</head>
-	<body>
 
 		<form onsubmit="return checkForm();" action="confirmar.php" method="POST">
 			<fieldset>
@@ -117,10 +105,7 @@
 				<input type="submit" value="Enviar">
 			</div>
 		</form>
-	</body>
-</html>
 
-<script src="./../js/compra.js"></script>
 
 
 <?php
