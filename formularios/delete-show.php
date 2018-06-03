@@ -4,9 +4,10 @@ require './../modules/gestion_conciertos.php';
 
 $gestion = new GestionConciertos();
 $success = "";
+$statement = false;
 
 if (isset($_GET["id"])) {
-  if ($gestion->delete($_GET["id"])){
+  if ($statement = $gestion->delete($_GET["id"])){
     $success = "Concierto eliminado correctamente";
   } else {
     $success = "Error al eliminar concierto";
@@ -21,7 +22,9 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 <h2 class="center">Eliminar conciertos</h2>
 
-<?php if ($success) echo $success; ?>
+<?php if ($statement) : ?>
+	<blockquote class="center"><?php echo $success;?></blockquote>
+<?php endif; ?>
 
 <?php if ($result) : ?>
 <table class="db container">

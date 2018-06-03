@@ -204,7 +204,6 @@ HTML;
 				pass = :pass,
 				role = :role
 			WHERE id = :id";
-		echo "<br>$sql<br>";
 		try{
 		$statement = $this->connection->prepare($sql);
 		return $statement->execute($user);

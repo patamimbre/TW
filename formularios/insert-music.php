@@ -36,7 +36,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
-    <blockquote><?php echo escape($_POST['nombre']); ?> successfully added.</blockquote>
+    <blockquote class="center"><?php echo escape($_POST['nombre']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
   <h2>Add a user</h2>

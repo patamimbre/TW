@@ -1,8 +1,7 @@
 <?php
 
 require './../modules/gestion_discos.php';
-//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/mysite/php/includes/dbconn.inc');
-//include ("./../test.php");
+
 $gestion = new GestionDiscos;
 $result = $gestion->all();
 

@@ -24,7 +24,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
-    <blockquote><?php echo escape($_POST['fecha']); ?> añadido correctamente</blockquote>
+    <blockquote class="center"><?php echo escape($_POST['fecha']); ?> añadido correctamente</blockquote>
   <?php endif; ?>
 
   <h2 class="center">Añadir concierto</h2>

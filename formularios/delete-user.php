@@ -4,9 +4,10 @@ require './../modules/gestion_usuarios.php';
 
 $gestion = new GestionUsuarios();
 $success = "";
+$statement = false;
 
 if (isset($_GET["id"])) {
-  if ($gestion->deleteUser($_GET["id"])){
+  if ($statement = $gestion->deleteUser($_GET["id"])){
     $success = "Usuario eliminado correctamente";
   } else {
     $success = "Error al eliminar usuario";
@@ -20,7 +21,9 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 <h2 class="center">Borrar usuario</h2>
 
-<?php if ($success) echo $success; ?>
+<?php if ($statement) : ?>
+	<blockquote class="center"><?php echo $success;?></blockquote>
+<?php endif; ?>
 
 <?php if ($result) : ?>
 <table class="db container">

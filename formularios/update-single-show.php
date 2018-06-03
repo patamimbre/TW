@@ -4,15 +4,6 @@ require_once('./../modules/gestion_conciertos.php');
 
 $gestion = new GestionConciertos();
 
-$concierto =[
-  "id"    => $_GET['id'],
-  "fecha" => "2018-07-03",
-  "hora"  => "17:00:00",
-  "localizacion" => "París"
-];
-
-$gestion->modify($concierto);
-
 
 if (isset($_POST['submit'])) {
    if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
@@ -39,7 +30,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['id']); ?> actualizado correctamente</blockquote>
+	<blockquote  class="center"><?php echo escape($_POST['id']); ?> actualizado correctamente</blockquote>
 <?php endif; ?>
 
 <h2>Edición de Concierto</h2>

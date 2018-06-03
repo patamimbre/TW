@@ -35,7 +35,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['email']); ?> actualizado correctamente</blockquote>
+	<blockquote class="center"><?php echo escape($_POST['email']); ?> actualizado correctamente</blockquote>
 <?php endif; ?>
 
 <h2>Edición de usuario</h2>
