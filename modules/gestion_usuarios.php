@@ -11,10 +11,6 @@ class GestionUsuarios{
 		try {
 			#Conecta a la DB
 			$this->connection = new PDO(DB_DSN, DB_USUARIO, DB_PASS);
-
-			if (session_status() == PHP_SESSION_NONE) {
-    		session_start();
-			}
 		} catch (PDOException $error) {
 			echo "<br>Error <br> " . $error->getMessage();
 		}
@@ -32,7 +28,10 @@ class GestionUsuarios{
 			$result = $state->fetchColumn();
 
 			if (password_verify($pass,$result)){
-				$_SESSION['email'] = $email;
+				if (session_status() == PHP_SESSION_NONE) {
+					session_start();
+					$_SESSION['email'] = $email;
+				}
 				return true;
 			} else {
 				return false;
@@ -103,44 +102,28 @@ class GestionUsuarios{
 
 
 	public function deleteUser($id){
-		if (isset($_SESSION['email'])){
-			if ($this->isAdmin($_SESSION['email'])){
-				$sql = "DELETE FROM usuarios where ID = :id";
-				try{
-					$state = $this->connection->prepare($sql);
-					$state->bindParam(':id',$id);
-					$state->execute();
-				return true;
-				} catch (PDOException $error){
-					return false;
-				}
-			} else {
-				echo "<br> Acción no permitida </br>";
-			}
-		} else {
-			echo "<br> No logueado </br>";
+		$sql = "DELETE FROM usuarios where ID = :id";
+		try{
+			$state = $this->connection->prepare($sql);
+			$state->bindParam(':id',$id);
+			$state->execute();
+		return true;
+		} catch (PDOException $error){
+			return false;
 		}
 	}
 
 	public function registeredUsers(){
-		if (isset($_SESSION['email'])){
-			if ($this->isAdmin($_SESSION['email'])){
-				$sql = "SELECT * FROM usuarios";
-				try {
-					$state = $this->connection->prepare($sql);
-					$state->execute();
+		$sql = "SELECT * FROM usuarios";
+		try {
+			$state = $this->connection->prepare($sql);
+			$state->execute();
 
-					return $state->fetchAll();
-				} catch (PDOException $e) {
-					return false;
-				} catch (PDOStatement $e) {
-					return false;
-				}
-			} else {
-				echo "<br> Acción no permitida </br>";
-			}
-		} else {
-			echo "<br> No logueado </br>";
+			return $state->fetchAll();
+		} catch (PDOException $e) {
+			return false;
+		} catch (PDOStatement $e) {
+			return false;
 		}
 	}
 
@@ -181,79 +164,53 @@ HTML;
 	}
 
 	public function setUserRole($email, $role){
-		if (isset($_SESSION['email'])){
-			if ($this->isAdmin($_SESSION['email'])){
-				$sql = "UPDATE usuarios
-								SET role = :role
-								WHERE email = :email";
+		$sql = "UPDATE usuarios
+						SET role = :role
+						WHERE email = :email";
 
-				try {
-					$status = $this->connection->prepare($sql);
-					$status->bindParam(':email', $email);
-					$status->bindParam(':role', $role);
-					$status->execute();
-					return true;
-				} catch (PDOException $e) {
-					return false;
-				}
-			} else {
-				echo "<br> Acción no permitida </br>";
-			}
-		} else {
-			echo "<br> No logueado </br>";
+		try {
+			$status = $this->connection->prepare($sql);
+			$status->bindParam(':email', $email);
+			$status->bindParam(':role', $role);
+			$status->execute();
+			return true;
+		} catch (PDOException $e) {
+			return false;
 		}
 	}
 
 	public function getUser($id){
-		if (isset($_SESSION['email'])){
-			if ($this->isAdmin($_SESSION['email'])){
-				try {
-    			$sql = "SELECT * FROM usuarios WHERE ID = :id";
-    			$statement = $this->connection->prepare($sql);
-    			$statement->bindValue(':id', $id);
-    			$statement->execute();
+		try {
+		$sql = "SELECT * FROM usuarios WHERE ID = :id";
+		$statement = $this->connection->prepare($sql);
+		$statement->bindValue(':id', $id);
+		$statement->execute();
 
-    			return $statement->fetch(PDO::FETCH_ASSOC);
-			  } catch(PDOException $error) {
-			      return false;
-			  }
-			} else {
-					echo "<br> Acción no permitida </br>";
-			}
-		} else {
-				echo "<br> No logueado </br>";
+		return $statement->fetch(PDO::FETCH_ASSOC);
+		} catch(PDOException $error) {
+			return false;
 		}
-
 	}
 
 
 	public function modifyUser($user){
-		if (isset($_SESSION['email'])){
-			if ($this->isAdmin($_SESSION['email'])){
-				$user['pass'] = password_hash($user['pass'], PASSWORD_DEFAULT);
-				$sql = "UPDATE usuarios
-		            SET
-		              nombre = :nombre,
-		              apellidos = :apellidos,
-		              email = :email,
-		              telefono = :telefono,
-		              pass = :pass,
-		              role = :role
-					WHERE id = :id";
-				echo "<br>$sql<br>";
-				try{
-			  	$statement = $this->connection->prepare($sql);
-			  	return $statement->execute($user);
-			  } catch(PDOException $error) {
-			    return false;
-			  }
-			} else {
-				echo "<br> Acción no permitida </br>";
-			}
-		} else {
-			echo "<br> No logueado </br>";
-		}
-
+		$user['pass'] = password_hash($user['pass'], PASSWORD_DEFAULT);
+		$sql = "UPDATE usuarios
+			SET
+				nombre = :nombre,
+				apellidos = :apellidos,
+				email = :email,
+				telefono = :telefono,
+				pass = :pass,
+				role = :role
+			WHERE id = :id";
+		echo "<br>$sql<br>";
+		try{
+		$statement = $this->connection->prepare($sql);
+		return $statement->execute($user);
+		} catch(PDOException $error) {
+		return false;
+		}	
 	}
 
 	/*

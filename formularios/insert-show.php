@@ -27,15 +27,15 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
     <blockquote><?php echo escape($_POST['fecha']); ?> añadido correctamente</blockquote>
   <?php endif; ?>
 
-  <h2>Añadir concierto</h2>
+  <h2 class="center">Añadir concierto</h2>
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <label for="fecha">fecha</label>
+    <label for="fecha">Fecha</label>
     <input type="text" name="fecha" id="fecha">
-    <label for="hora">hora</label>
+    <label for="hora">Hora</label>
     <input type="text" name="hora" id="hora">
-    <label for="localizacion">localizacion</label>
+    <label for="localizacion">Localización</label>
     <input type="text" name="localizacion" id="localizacion">
     <input type="submit" name="submit" value="Submit">
   </form>

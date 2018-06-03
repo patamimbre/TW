@@ -34,10 +34,10 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
           <?php foreach ($disco['canciones'] as $cancion): ?>
 
             <div class="row cancion">
-              <div class="col nombre">
+              <div class="col-10 nombre">
                 <p><?php echo escape($cancion["nombre"]);?></p>
               </div>
-              <div class="col duracion">
+              <div class="col-2 duracion">
                 <p><?php echo escape($cancion["duracion"]);?></p>
               </div>
             </div>

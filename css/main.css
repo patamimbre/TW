@@ -22,7 +22,7 @@ h1 {
 }
 
 .main {
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .disco,
@@ -41,7 +41,8 @@ h1 {
 .disco h4,
 .disco p,
 .conciertos p,
-.acciones h5 {
+.acciones h5
+.records h2 {
     padding: 0.8rem;
     margin: 0;
     color: white;
@@ -73,7 +74,13 @@ button:hover {
   margin-top: 1.5rem;
 }
 
+.cancion .nombre p{
+ font-size: 1.6rem;
+}
 
+.cancion .duracion p{
+  font-size: 1.2rem;
+ }
 
 .conciertos .row:first-child
  {
@@ -82,7 +89,9 @@ button:hover {
 
 .conciertos .col ,
 #records td,
-#records th{
+#records th,
+.db th,
+.db td{
   border-bottom: 2px solid #B8860B;
   padding-bottom: 1.5rem;
 }
@@ -90,6 +99,8 @@ button:hover {
 #records td {
   padding: 1rem 1.5rem;
 }
+
+
 
 .conciertos .row:last-child .col {
   border-bottom: none;
@@ -114,6 +125,10 @@ button:hover {
   padding: 1.5rem;
 }
 
+.db a {
+  text-decoration: none;
+  color: #B8860B;
+}
 
 
 

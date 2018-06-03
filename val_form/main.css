@@ -1,0 +1,53 @@
+div.row {
+	margin: 1% 2% 1% 2%;
+}
+
+h5{
+	margin: 10px 0;
+	font-size: 1.5em;
+}
+
+fieldset {
+	margin-bottom: 15px;
+}
+
+input[type=date],
+label#revista {
+	margin-left: 10px;
+}
+
+#revista {
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.row > legend,
+label.tiempo {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin: 15px 0;
+}
+
+
+input[type=text],
+input[type=date],
+input[type=email],
+input[type=tel], 
+select {
+	background: whitesmoke;
+	border: 0.8px solid black;
+	color: black;
+}
+
+div.tarjeta input[type=text] {
+	width: 80%;
+}
+
+input#cvc{
+	width: 6rem;
+}
+
+.error {
+	color: red;
+	display:none;
+}

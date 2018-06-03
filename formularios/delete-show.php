@@ -1,8 +1,6 @@
 <?php
 
 require './../modules/gestion_conciertos.php';
-//require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/mysite/php/includes/dbconn.inc');
-//include ("./../test.php");
 
 $gestion = new GestionConciertos();
 $success = "";
@@ -21,28 +19,29 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 ?>
 
-<h2>Eliminar conciertos</h2>
+<h2 class="center">Eliminar conciertos</h2>
 
 <?php if ($success) echo $success; ?>
 
 <?php if ($result) : ?>
-<table>
+<table class="db container">
   <thead>
-    <tr>
-      <th>#</th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Localización</th>
+    <tr class="row">
+      <th class="col-2">#</th>
+      <th class="col-3">Fecha</th>
+      <th class="col-2">Hora</th>
+      <th class="col-3">Localización</th>
+      <th class="col-2">Acción</th>
     </tr>
   </thead>
     <tbody>
     <?php foreach ($result as $row) : ?>
-      <tr>
-        <td><?php echo escape($row["id"]); ?></td>
-        <td><?php echo escape($row["fecha"]); ?></td>
-        <td><?php echo escape($row["hora"]); ?></td>
-        <td><?php echo escape($row["localizacion"]); ?></td>
-        <td><a href="delete-show.php?id=<?php echo escape($row["id"]); ?>">Remove</a></td>
+      <tr class="row">
+        <td class="col-2 center"><?php echo escape($row["id"]); ?></td>
+        <td class="col-3 center"><?php echo escape($row["fecha"]); ?></td>
+        <td class="col-2 center"><?php echo escape($row["hora"]); ?></td>
+        <td class="col-3 center"><?php echo escape($row["localizacion"]); ?></td>
+        <td class="col-2 center"><a href="delete-show.php?id=<?php echo escape($row["id"]); ?>">Eliminar</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>

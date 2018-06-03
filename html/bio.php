@@ -54,8 +54,8 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
         </p>
     </section>
     
-    <section id="records">
-        <h2>Algunos de sus muchos récords</h2>
+    <section id="records" class"container">
+        <h2 class="center">Algunos de sus muchos récords</h2>
         <table >
             <tr>
                 <th>Año</th>

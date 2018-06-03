@@ -8,7 +8,7 @@ $result = $gestion->all();
 
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
-
+<div class="container center">
 <h2>Editar discos</h2>
 <?php if ($result) : ?>
 <table>
@@ -32,7 +32,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
     <?php endforeach; ?>
     </tbody>
 </table>
-
+</div>
 <?php else : ?>
   <p>Debes ser administrador para realizar esta acción</p>
 
