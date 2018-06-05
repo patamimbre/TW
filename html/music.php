@@ -15,6 +15,8 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
     <?php foreach ($result as $disco): ?>
 
     <form class="discos container" action="./../formularios/compra.php" method="POST">
+      <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
+
       <div class="disco container">
         <div class="row">
           <div class="col-9 center titulo">

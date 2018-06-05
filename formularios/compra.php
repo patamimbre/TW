@@ -4,7 +4,11 @@
 
 	$gestion = new GestionDiscos;
 
+
+
+
 	if (isset($_POST['id'])) {
+		if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 		$disco = $gestion->get($_POST['id']);
 	} else {
 		echo "Something went wrong!";
@@ -16,7 +20,7 @@
 <script src="./../js/compra.js"></script>
 
 
-		<form onsubmit="return checkForm();" action="confirmar.php" method="POST">
+		<form onsubmit="return checkForm();" action="confirmacion.php" method="POST">
 			<fieldset>
 				<div class="row">
 					<legend>Información Personal</legend>
@@ -100,9 +104,11 @@
 					</div>
 				</div>
 			</fieldset>
+
+			<?php echo '<input type="hidden" name="id" value="'.$_POST['id'].'" >';?>;
 			
 			<div class="row center">
-				<input type="submit" value="Enviar">
+				<input type="submit" name="submit" value="submit">
 			</div>
 		</form>
 

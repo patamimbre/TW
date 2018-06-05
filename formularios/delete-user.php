@@ -6,6 +6,7 @@ $gestion = new GestionUsuarios();
 $success = "";
 $statement = false;
 
+
 if (isset($_GET["id"])) {
   if ($statement = $gestion->deleteUser($_GET["id"])){
     $success = "Usuario eliminado correctamente";

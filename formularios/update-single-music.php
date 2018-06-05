@@ -1,10 +1,10 @@
 <?php
 
-require_once('./../modules/gestion_usuarios.php');
+require_once('./../modules/gestion_discos.php');
 
 //session_start();
 
-$gestion = new GestionUsuarios;
+$gestion = new GestionDiscos;
 
 if (isset($_POST['submit'])) {
    if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 
 ?>
-
+GestionUsuarios
 <?php if (isset($_POST['submit']) && $statement) : ?>
 	<blockquote class="center"><?php echo escape($_POST['email']); ?> actualizado correctamente</blockquote>
 <?php endif; ?>

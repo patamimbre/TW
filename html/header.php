@@ -1,3 +1,8 @@
+<?php
+    include_once './../common.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
 

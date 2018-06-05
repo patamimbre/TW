@@ -6,6 +6,7 @@ $gestion = new GestionConciertos();
 $success = "";
 $statement = false;
 
+
 if (isset($_GET["id"])) {
   if ($statement = $gestion->delete($_GET["id"])){
     $success = "Concierto eliminado correctamente";

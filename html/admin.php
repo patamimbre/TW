@@ -1,5 +1,13 @@
 <?php
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+
+
+
+
+
+
+
+
 ?>
 
 
@@ -51,6 +59,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
         </div>
       </div>
     </div>
+
 
 <?php
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
