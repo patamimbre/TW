@@ -1,7 +1,6 @@
 <?php
 
 include_once "configuracion.inc";
-include_once "./../common.php";
 
 class GestionUsuarios{
 
@@ -16,7 +15,7 @@ class GestionUsuarios{
 		}
 	}
 
-	public function login($email, $pass){
+	public function check($email, $pass){
 		$sql = "SELECT pass FROM usuarios
 						WHERE email = :email";
 
@@ -28,10 +27,6 @@ class GestionUsuarios{
 			$result = $state->fetchColumn();
 
 			if (password_verify($pass,$result)){
-				if (session_status() == PHP_SESSION_NONE) {
-					session_start();
-					$_SESSION['email'] = $email;
-				}
 				return true;
 			} else {
 				return false;
@@ -42,27 +37,6 @@ class GestionUsuarios{
 			return false;
 		}
 
-	}
-
-	public function logout(){
-
-		if (isset($_SESSION['email'])){
-			//Unset session variables
-			$_SESSION = array();
-			//Delete cookie if exist
-			if (ini_get("session.use_cookies")) {
-				$params = session_get_cookie_params();
-				setcookie(session_name(), '', time() - 42000,
-					$params["path"], $params["domain"],
-					$params["secure"], $params["httponly"]
-				);
-			}
-			// Destroy the session
-			session_destroy();
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 
@@ -217,7 +191,7 @@ HTML;
 		Los usuarios del tipo 1 son ADMINISTRADORES
 		Los usuarios del tipo 0 son usuarios normales
 	*/
-	private function isAdmin($email){
+	public function getRole($email){
 
 		$sql = "SELECT role from usuarios
 						WHERE email = :email";
@@ -226,7 +200,7 @@ HTML;
 			$status = $this->connection->prepare($sql);
 			$status->bindParam(':email', $email);
 			$status->execute();
-			return $status->fetchColumn() == 1;
+			return $status->fetchColumn();
 		} catch (PDOException $e) {
 			echo 'Exception' . $e->getMessage();
 		}

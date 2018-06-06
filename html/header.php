@@ -1,6 +1,14 @@
 <?php
-    include_once './../common.php';
+
+    include_once '/home/alumnos/1718/germancastro1718/public_html/proyecto/common.php';
+    include_once '/home/alumnos/1718/germancastro1718/public_html/proyecto/modules/gestion_usuarios.php';
+
+    if (isset($_GET['logout'])){
+        logout();
+    }
 ?>
+
+
 
 
 <!DOCTYPE html>
@@ -12,6 +20,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/~germancastro1718/proyecto/css/main.css">
   <link rel="stylesheet" href="https://unpkg.com/wingcss" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+  
 </head>
 <body>
 <header>
@@ -21,7 +32,16 @@
         <a href="/~germancastro1718/proyecto/html/bio.php" class="nav-item">Bio</a>
         <a href="/~germancastro1718/proyecto/html/music.php" class="nav-item">Music</a>
         <a href="/~germancastro1718/proyecto/html/shows.php" class="nav-item">Shows</a>
-        <a href="/~germancastro1718/proyecto/html/admin.php" class="nav-item">Admin</a>
+        <a href="/~germancastro1718/proyecto/html/admin.php" class="nav-item"
+        <?php if (!isset($_SESSION['tipo']) || ($_SESSION['tipo'] != 1 && $_SESSION['tipo'] != 2 )) echo 'style="display: none;"';?> >Admin</a>
+        <?php
+            if (!isset($_SESSION['email']))
+                echo '<a class="identificacion nav-item" href="https://void.ugr.es/~germancastro1718/proyecto/formularios/login.php">Iniciar Sesión</a>';
+            else {
+                echo '<a href="https://void.ugr.es/~germancastro1718/proyecto/index.php?logout" class="identificacion nav-item">'.$_SESSION['email']. '<i class="icon-remove"></i></a>';
+            }
+        ?>
+
     </nav>
 </header>
 

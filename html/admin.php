@@ -1,11 +1,10 @@
 <?php
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 
-
-
-
-
-
+if (!isset($_SESSION['tipo']) || ($_SESSION['tipo'] != 1 && $_SESSION['tipo'] != 2 )){
+  header('Location: https://void.ugr.es/~germancastro1718/proyecto/index.php');
+  exit();
+} 
 
 
 ?>

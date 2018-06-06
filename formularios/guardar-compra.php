@@ -5,7 +5,6 @@ require './../modules/gestion_discos.php';
 
 //if (!isset($_POST['submit'])) die();
 
-
 $compras = new GestionCompras;
 $gest_discos = new GestionDiscos;
 
