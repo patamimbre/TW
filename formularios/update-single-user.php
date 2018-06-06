@@ -1,8 +1,6 @@
 <?php
-
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 require_once('./../modules/gestion_usuarios.php');
-
-//session_start();
 
 $gestion = new GestionUsuarios;
 
@@ -29,8 +27,6 @@ if (isset($_GET['id'])) {
     echo "Something went wrong!";
     exit;
 }
-
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
@@ -39,21 +35,7 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 <h2>Edición de usuario</h2>
 
-<form method="post">
-  <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-      <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-	    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'ID' ? 'readonly' : null); ?>>
-      <br>
-    <?php endforeach; ?>
-    <input type="submit" name="submit" value="Submit">
-</form>
-
-
-
-<button onclick="location.href='./edit-user.php'" type="button">
-     Volver</button>
-
 <?php
+include "list.php";
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
 ?>

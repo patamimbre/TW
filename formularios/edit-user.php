@@ -1,10 +1,9 @@
 <?php
-
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 require './../modules/gestion_usuarios.php';
 
 $gestion = new GestionUsuarios;
 $result = $gestion->registeredUsers();
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <h2 class="center">Editar Usuarios</h2>

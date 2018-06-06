@@ -5,7 +5,10 @@
 	$gestion = new GestionDiscos;
 
 
-
+	if (!isset($_SESSION['email'])){
+		header('Location: https://void.ugr.es/~germancastro1718/proyecto/html/register.php');
+		exit();
+	} 
 
 	if (isset($_POST['id'])) {
 		if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();

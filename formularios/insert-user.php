@@ -1,8 +1,7 @@
 <?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 
 require_once('./../modules/gestion_usuarios.php');
-
-//session_start();
 
 $gestion = new GestionUsuarios;
 $statement = false;
@@ -21,7 +20,6 @@ if (isset($_POST['submit'])) {
   $statement = $gestion->addUser($new_user);
 
 }
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 

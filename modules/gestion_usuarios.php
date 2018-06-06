@@ -165,6 +165,19 @@ HTML;
 			return false;
 		}
 	}
+	
+	public function getUserByEmail($email){
+		try {
+		$sql = "SELECT * FROM usuarios WHERE email = :email";
+		$statement = $this->connection->prepare($sql);
+		$statement->bindValue(':email', $email);
+		$statement->execute();
+
+		return $statement->fetch(PDO::FETCH_ASSOC);
+		} catch(PDOException $error) {
+			return false;
+		}
+	}
 
 
 	public function modifyUser($user){

@@ -1,7 +1,6 @@
 <?php
 
     include_once '/home/alumnos/1718/germancastro1718/public_html/proyecto/common.php';
-    include_once '/home/alumnos/1718/germancastro1718/public_html/proyecto/modules/gestion_usuarios.php';
 
     if (isset($_GET['logout'])){
         logout();
