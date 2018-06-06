@@ -1,6 +1,11 @@
 <?php
 
-require './../modules/gestion_usuarios.php';
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_usuarios.php');
+
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1];
+$tipo = is_valid_user($permisos);     #common.php
 
 $gestion = new GestionUsuarios();
 $success = "";
@@ -16,8 +21,6 @@ if (isset($_GET["id"])) {
 }
 
 $result = $gestion->registeredUsers();
-
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <h2 class="center">Borrar usuario</h2>
@@ -42,13 +45,13 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
     <tbody>
     <?php foreach ($result as $row) : ?>
       <tr class="row">
-        <td class="col-1 center"><?php echo escape($row["ID"]); ?></td>
+        <td class="col-1 center"><?php echo escape($row["id"]); ?></td>
         <td class="col-2 center"><?php echo escape($row["nombre"]); ?></td>
         <td class="col-3 center"><?php echo escape($row["apellidos"]); ?></td>
         <td class="col-2 center"><?php echo escape($row["email"]); ?></td>
         <td class="col-2 center"><?php echo escape($row["telefono"]); ?></td>
         <td class="col-1 center"><?php echo escape($row["role"]); ?> </td>
-        <td class="col-1 center"><a href="delete-user.php?id=<?php echo escape($row["ID"]); ?>">Eliminar</a></td>
+        <td class="col-1 center"><a href="delete-user.php?id=<?php echo escape($row["id"]); ?>">Eliminar</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
@@ -58,5 +61,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
   <p>Debes ser administrador para realizar esta acción</p>
 
 <?php endif; 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
 ?>

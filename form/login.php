@@ -1,9 +1,11 @@
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
-require_once "/home/alumnos/1718/germancastro1718/public_html/proyecto/modules/gestion_usuarios.php";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once "/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_usuarios.php";
 
 
 $gestion = new GestionUsuarios;
+
+
 
 if (isset($_POST['submit'])){
     if (isset($_POST['email']) && isset($_POST['pass'])){
@@ -46,6 +48,9 @@ if (isset($_SESSION['email'])){
 
 
 <?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
+
+
 
 /*
 header('Location: https://void.ugr.es/~germancastro1718/proyecto/index.php');

@@ -1,7 +1,6 @@
 <?php
 
 include_once "configuracion.inc";
-include_once "./../common.php";
 
 class GestionDiscos{
     private $connection;

@@ -1,11 +1,11 @@
 <?php
 
-require './../modules/gestion_conciertos.php';
+require 'gestion/gestion_conciertos.php';
 
 $conciertos = new GestionConciertos();
 $result = $conciertos->to_array();
 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+include "header.php";
 ?>
 
       <div class="buscador container center">
@@ -48,8 +48,8 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
       </div>
     </div>
 
-  <script src="./../js/shows.js"></script>
+  <script src="js/shows.js"></script>
 
   <?php 
-  include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+  include "footer.html";
   ?>

@@ -76,7 +76,7 @@ class GestionUsuarios{
 
 
 	public function deleteUser($id){
-		$sql = "DELETE FROM usuarios where ID = :id";
+		$sql = "DELETE FROM usuarios where id = :id";
 		try{
 			$state = $this->connection->prepare($sql);
 			$state->bindParam(':id',$id);
@@ -120,7 +120,7 @@ class GestionUsuarios{
 HTML;
 			foreach ($result as $row) {
 				echo "<tr>";
-				echo "<td>".escape($row["ID"])."</td>";
+				echo "<td>".escape($row["id"])."</td>";
 				echo "<td>".escape($row["nombre"])."</td>";
 				echo "<td>".escape($row["apellidos"])."</td>";
 				echo "<td>".escape($row["email"])."</td>";
@@ -155,7 +155,7 @@ HTML;
 
 	public function getUser($id){
 		try {
-		$sql = "SELECT * FROM usuarios WHERE ID = :id";
+		$sql = "SELECT * FROM usuarios WHERE id = :id";
 		$statement = $this->connection->prepare($sql);
 		$statement->bindValue(':id', $id);
 		$statement->execute();

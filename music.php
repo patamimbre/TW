@@ -1,11 +1,11 @@
 <?php
 
-require './../modules/gestion_discos.php';
+require 'gestion/gestion_discos.php';
 
 $gestion = new GestionDiscos();
 $result = $gestion->to_array();
 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+include "header.php";
 ?>
 
     <div class="buscador container center">
@@ -67,5 +67,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 
 
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "footer.html";
 ?>

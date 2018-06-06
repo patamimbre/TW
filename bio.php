@@ -1,6 +1,6 @@
 <?php 
 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+include "header.php";
 
 ?>
     <div class="container cabecera ">
@@ -78,5 +78,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
         </table>
     </section>
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "footer.html";
 ?>

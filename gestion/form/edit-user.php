@@ -1,6 +1,11 @@
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
-require './../modules/gestion_usuarios.php';
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_usuarios.php');
+
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1];
+$tipo = is_valid_user($permisos);     #common.php
+
 
 $gestion = new GestionUsuarios;
 $result = $gestion->registeredUsers();
@@ -23,20 +28,17 @@ $result = $gestion->registeredUsers();
     <tbody>
     <?php foreach ($result as $row) : ?>
       <tr class="row">
-        <td class="col-1 center"><?php echo escape($row["ID"]); ?></td>
+        <td class="col-1 center"><?php echo escape($row["id"]); ?></td>
         <td class="col-2 center"><?php echo escape($row["nombre"]); ?></td>
         <td class="col-3 center"><?php echo escape($row["apellidos"]); ?></td>
         <td class="col-2 center"><?php echo escape($row["email"]); ?></td>
         <td class="col-2 center"><?php echo escape($row["telefono"]); ?></td>
         <td class="col-1 center"><?php echo escape($row["role"]); ?> </td>
-        <td class="col-1 center"><a href="update-single-user.php?id=<?php echo escape($row["ID"]); ?>">Edit</a></td>
+        <td class="col-1 center"><a href="update-single-user.php?id=<?php echo escape($row["id"]); ?>">Edit</a></td>
       </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
 
-<?php else : ?>
-  <p>Debes ser administrador para realizar esta acción</p>
-
 <?php endif; 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";?>
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";?>

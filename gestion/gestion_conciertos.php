@@ -1,7 +1,6 @@
 <?php
 
 include_once "configuracion.inc";
-include_once "./../common.php";
 
 class GestionConciertos{
     private $connection;
@@ -31,6 +30,7 @@ class GestionConciertos{
     }
 
     public function add($concierto){
+        $concierto['fecha'] = date_format($concierto['fecha'],"Y-m-d");
         $sql = "INSERT INTO conciertos
 		(fecha,hora,localizacion)
 		VALUES
@@ -77,6 +77,8 @@ class GestionConciertos{
     }
 
     public function modify($concierto){
+
+        $concierto['fecha'] = date_format($concierto['fecha'],"Y-m-d");
         $sql = "UPDATE conciertos
                 SET
                     fecha = :fecha,
@@ -90,25 +92,6 @@ class GestionConciertos{
             return false;
         }
     }
-
-    public function search($param){
-        $sql = "SELECT * FROM conciertos
-                WHERE fecha LIKE '%:param%'
-                OR localizacion LIKE '%:param%'";
-    
-        try{
-          $state = $this->connection->prepare($sql);
-          $state->bindParam(':param', $param);
-          $state->execute();
-    
-          $result = $state->fetchAll();
-          print_r($result);
-    
-        } catch (PDOException $error){
-          echo "<br>Error <br> " . $error->getMessage();
-        }
-    
-      }
     
     public function to_array(){
     $sql = "SELECT * FROM conciertos

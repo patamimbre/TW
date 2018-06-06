@@ -41,3 +41,12 @@ function logout(){
 		return false;
 	}
 }
+
+function is_valid_user($permisos){
+	if( isset( $_SESSION['tipo']) && in_array($_SESSION['tipo'],$permisos) ){
+		return $_SESSION['tipo'];
+	  } else {
+		header('Location: https://void.ugr.es/~germancastro1718/proyecto/index.php');
+		exit();
+	  }
+}

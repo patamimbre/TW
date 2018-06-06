@@ -28,14 +28,14 @@
     <h1 class="center">Julio Iglesias</h1>
     <nav class="nav center">
         <a href="/~germancastro1718/proyecto/index.php" class="nav-item">Home</a>
-        <a href="/~germancastro1718/proyecto/html/bio.php" class="nav-item">Bio</a>
-        <a href="/~germancastro1718/proyecto/html/music.php" class="nav-item">Music</a>
-        <a href="/~germancastro1718/proyecto/html/shows.php" class="nav-item">Shows</a>
-        <a href="/~germancastro1718/proyecto/html/admin.php" class="nav-item"
-        <?php if (!isset($_SESSION['tipo']) || ($_SESSION['tipo'] != 1 && $_SESSION['tipo'] != 2 )) echo 'style="display: none;"';?> >Admin</a>
+        <a href="/~germancastro1718/proyecto/bio.php" class="nav-item">Bio</a>
+        <a href="/~germancastro1718/proyecto/music.php" class="nav-item">Music</a>
+        <a href="/~germancastro1718/proyecto/shows.php" class="nav-item">Shows</a>
+        <a href="/~germancastro1718/proyecto/gestion.php" class="nav-item"
+        <?php if (!isset($_SESSION['tipo']) || ($_SESSION['tipo'] != 1 && $_SESSION['tipo'] != 2 )) echo 'style="display: none;"';?> >Gestión</a>
         <?php
             if (!isset($_SESSION['email']))
-                echo '<a class="identificacion nav-item" href="https://void.ugr.es/~germancastro1718/proyecto/formularios/login.php">Iniciar Sesión</a>';
+                echo '<a class="identificacion nav-item" href="https://void.ugr.es/~germancastro1718/proyecto/form/login.php">Iniciar Sesión</a>';
             else {
                 echo '<a href="https://void.ugr.es/~germancastro1718/proyecto/index.php?logout" class="identificacion nav-item">'.$_SESSION['email']. '<i class="icon-remove"></i></a>';
             }

@@ -1,13 +1,17 @@
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
-require_once('./../modules/gestion_usuarios.php');
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_usuarios.php');
+
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1];
+$tipo = is_valid_user($permisos);     #common.php
 
 $gestion = new GestionUsuarios;
 
 if (isset($_POST['submit'])) {
    if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
-    $user =[
-      "id"        => $_POST['ID'],
+    $data =[
+      "id"        => $_POST['id'],
       "nombre" => $_POST['nombre'],
       "apellidos"  => $_POST['apellidos'],
       "email"     => $_POST['email'],
@@ -16,12 +20,12 @@ if (isset($_POST['submit'])) {
       "role"      => $_POST['role']
     ];
 
-    $statement = $gestion->modifyUser($user);
+    $statement = $gestion->modifyUser($data);
 
 }
 
 if (isset($_GET['id'])) {
-  $user = $gestion->getUser($_GET['id']);
+  $data = $gestion->getUser($_GET['id']);
 
 } else {
     echo "Something went wrong!";
@@ -37,5 +41,5 @@ if (isset($_GET['id'])) {
 
 <?php
 include "list.php";
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
 ?>

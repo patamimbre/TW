@@ -1,7 +1,11 @@
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_usuarios.php');
 
-require_once('./../modules/gestion_usuarios.php');
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1];
+$tipo = is_valid_user($permisos);     #common.php
+
 
 $gestion = new GestionUsuarios;
 $statement = false;
@@ -45,5 +49,4 @@ if (isset($_POST['submit'])) {
   </form>
 
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
-?>
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";?>

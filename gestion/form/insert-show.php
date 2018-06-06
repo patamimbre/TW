@@ -1,8 +1,10 @@
 <?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_conciertos.php');
 
-require_once('./../modules/gestion_conciertos.php');
-
-//session_start();
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1];
+$tipo = is_valid_user($permisos);     #common.php
 
 $gestion = new GestionConciertos;
 $statement = false;
@@ -11,15 +13,14 @@ if (isset($_POST['submit'])) {
   if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
   $new_show = array(
-    "fecha" => $_POST['fecha'],
+    "fecha" => date_create($_POST['fecha']),
     "hora"  => $_POST['hora'],
     "localizacion"     => $_POST['localizacion']
   );
 
   $statement = $gestion->add($new_show);
-
 }
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
+
 ?>
 
 
@@ -41,5 +42,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
   </form>
 
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
 ?>

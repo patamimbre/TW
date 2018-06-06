@@ -1,11 +1,14 @@
 <?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_conciertos.php');
 
-require './../modules/gestion_conciertos.php';
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1];
+$tipo = is_valid_user($permisos);     #common.php
 
 
 $conciertos = new GestionConciertos();
 $result = $conciertos->all();
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <h2 class="center">Editar Conciertos</h2>
@@ -33,8 +36,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
     </tbody>
 </table>
 
-<?php else : ?>
-  <p>Debes ser administrador para realizar esta acción</p>
-
 <?php endif; 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";?>
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";?>
