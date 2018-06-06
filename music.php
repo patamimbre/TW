@@ -14,7 +14,7 @@ include "header.php";
 
     <?php foreach ($result as $disco): ?>
 
-    <form class="discos container" action="./../formularios/compra.php" method="POST">
+    <form class="discos container" action="compras/form/compra.php" method="POST">
       <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
 
       <div class="disco container">

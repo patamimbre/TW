@@ -1,11 +1,13 @@
 <?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
 
-if (!isset($_POST['submit'])) die();
+if (!isset($_POST['submit'])){
+    header('Location: https://void.ugr.es/~germancastro1718/proyecto/index.php');
+    exit();
+}
 
 array_pop($_POST);
 
-
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 
 <form action="guardar-compra.php" method="post">
@@ -27,5 +29,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
 </form>
 
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
 ?>

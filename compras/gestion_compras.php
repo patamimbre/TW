@@ -1,6 +1,6 @@
 <?php
 
-include_once "configuracion.inc";
+include_once "/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/configuracion.inc";
 
 class GestionCompras{
     private $connection;
@@ -121,10 +121,26 @@ class GestionCompras{
         }
     }
 
+    public function historico(){
+        try {
+            $sql = "SELECT * FROM pedidos 
+                    WHERE estado = 0 OR estado = 1
+                    ORDER BY estado DESC, fecha DESC";
+            $statement = $this->connection->prepare($sql);
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $error) {
+            return false;
+        }
+    }
+    
+
     # Devuelve array con compras aceptadas
     public function get_aceptados(){
         try {
-            $sql = "SELECT * FROM pedidos WHERE estado = 1";
+            $sql = "SELECT * FROM pedidos 
+                    WHERE estado = 1
+                    ORDER BY fecha DESC";
             $statement = $this->connection->prepare($sql);
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -136,7 +152,9 @@ class GestionCompras{
     # Devuelve array con compras rechazadas
     public function get_rechazados(){
         try {
-            $sql = "SELECT * FROM pedidos WHERE estado = 0";
+            $sql = "SELECT * FROM pedidos 
+                    WHERE estado = 0
+                    ORDER BY fecha DESC";
             $statement = $this->connection->prepare($sql);
             $statement->execute();
             return $statement->fetchAll(PDO::FETCH_ASSOC);

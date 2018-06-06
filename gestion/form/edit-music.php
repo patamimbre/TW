@@ -1,6 +1,10 @@
 <?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_discos.php');
 
-require './../modules/gestion_discos.php';
+# Comprueba que el usuario tiene permisos para acceder a esta página
+$permisos = [1,2];
+$tipo = is_valid_user($permisos);     #common.php
 
 $gestion = new GestionDiscos;
 $result = $gestion->all();
@@ -42,4 +46,4 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
   <p>Debes ser administrador para realizar esta acción</p>
 
 <?php endif; 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";?>
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";?>

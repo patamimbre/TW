@@ -35,7 +35,7 @@
         <?php if (!isset($_SESSION['tipo']) || ($_SESSION['tipo'] != 1 && $_SESSION['tipo'] != 2 )) echo 'style="display: none;"';?> >Gestión</a>
         <?php
             if (!isset($_SESSION['email']))
-                echo '<a class="identificacion nav-item" href="https://void.ugr.es/~germancastro1718/proyecto/form/login.php">Iniciar Sesión</a>';
+                echo '<a class="identificacion nav-item" href="https://void.ugr.es/~germancastro1718/proyecto/login.php">Iniciar Sesión</a>';
             else {
                 echo '<a href="https://void.ugr.es/~germancastro1718/proyecto/index.php?logout" class="identificacion nav-item">'.$_SESSION['email']. '<i class="icon-remove"></i></a>';
             }

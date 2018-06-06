@@ -1,6 +1,6 @@
-<?php 
-
-	require_once('./../modules/gestion_discos.php');
+<?php
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/header.php";
+require_once('/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_discos.php');
 
 	$gestion = new GestionDiscos;
 
@@ -14,11 +14,9 @@
 		if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 		$disco = $gestion->get($_POST['id']);
 	} else {
-		echo "Something went wrong!";
-		exit;
+		header('Location: https://void.ugr.es/~germancastro1718/proyecto/index.php');
+		exit();
 	}
-
-	include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
 <script src="./../js/compra.js"></script>
 
@@ -118,5 +116,5 @@
 
 
 <?php
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/footer.html";
+include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
 ?>
