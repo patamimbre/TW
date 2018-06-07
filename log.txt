@@ -15,3 +15,7 @@
 [07/06/2018 20:17:39]| kisos@gmail.com ha insertado el disco ASD
 [07/06/2018 20:20:47]| kisos@gmail.com ha insertado el disco ASD
 [07/06/2018 20:21:39]| kisos@gmail.com ha eliminado el disco id:56
+[07/06/2018 20:30:07]| kisos@gmail.com ha cerrado sesión
+[07/06/2018 20:30:20]| juan@ugr.es ha iniciado sesión
+[07/06/2018 21:17:26]| juan@ugr.es ha rechazado el pedido 5
+[07/06/2018 21:17:44]| juan@ugr.es ha aceptado el pedido 6

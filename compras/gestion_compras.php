@@ -1,15 +1,18 @@
 <?php
 
 include_once "/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/configuracion.inc";
+require_once "/home/alumnos/1718/germancastro1718/public_html/proyecto/gestion/gestion_usuarios.php";
 
 class GestionCompras{
     private $connection;
     private $currentUser;
+    private $usuarios;
 
 	public function __construct(){
 		try {
 			#Conecta a la DB
-			$this->connection = new PDO(DB_DSN, DB_USUARIO, DB_PASS);
+            $this->connection = new PDO(DB_DSN, DB_USUARIO, DB_PASS);
+            $this->usuarios = new GestionUsuarios();
 		} catch (PDOException $error) {
 			echo "<br>Error <br> " . $error->getMessage();
 		}
@@ -52,7 +55,8 @@ class GestionCompras{
 
     # al aceptarla se pone timestamp actual
     # y el estado a 1 (+otros valores)
-    public function aceptar($id,$gestor){
+    public function aceptar($id,$mail_gestor){
+        $gestor = $this->usuarios->getUserByEmail($mail_gestor);
         $sql = "UPDATE pedidos
                 SET
                     estado = 1,
@@ -74,8 +78,8 @@ class GestionCompras{
 
     # al rechazarla se pone el timestamp actual 
     # y el estado a 0 (+otros valores)
-    public function rechazar($id,$gestor,$info){
-        # al aceptarla se pone el timestamp actual
+    public function rechazar($id,$mail_gestor,$info){
+        $gestor = $this->usuarios->getUserByEmail($mail_gestor);
         $sql = "UPDATE pedidos
                 SET
                     estado = 0,
@@ -110,7 +114,7 @@ class GestionCompras{
     }
 
     # devuelve compras con estado a null
-    public function get_esperando(){
+    public function esperando(){
         try {
             $sql = "SELECT * FROM pedidos WHERE estado IS NULL ";
             $statement = $this->connection->prepare($sql);
