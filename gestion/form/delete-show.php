@@ -14,6 +14,8 @@ $statement = false;
 if (isset($_GET["id"])) {
   if ($statement = $gestion->delete($_GET["id"])){
     $success = "Concierto eliminado correctamente";
+    writeLog($_SESSION['email']." ha eliminado el concierto id:".$_GET['id']);
+
   } else {
     $success = "Error al eliminar concierto";
   }

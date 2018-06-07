@@ -22,6 +22,7 @@ if (isset($_POST['submit'])) {
   );
 
   $statement = $gestion->addUser($new_user);
+  writeLog($_SESSION['email']." ha insertado el usuario ".$_POST['email']);
 
 }
 ?>

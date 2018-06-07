@@ -13,6 +13,7 @@ $statement = false;
 if (isset($_GET["id"])) {
   if ($statement = $gestion->delete($_GET["id"])){
     $success = "Disco eliminado correctamente";
+    writeLog($_SESSION['email']." ha eliminado el disco id:".$_GET['id']);
   } else {
     $success = "Error al eliminar disco";
   }

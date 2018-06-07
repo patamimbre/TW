@@ -9,13 +9,9 @@ $tipo = is_valid_user($permisos);     #common.php
 $gestion = new GestionDiscos;
 $result = $gestion->all();
 
-include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.php";
 ?>
-<div class="container center">
-<h2>Editar discos</h2>
-<?php if ($statement) : ?>
-	<blockquote class="center"><?php echo $success;?></blockquote>
-<?php endif; ?>
+
+<h2 class="center">Editar discos</h2>
 
   <?php if ($result) : ?>
   <table class="db container">
@@ -42,8 +38,5 @@ include "/home/alumnos/1718/germancastro1718/public_html/proyecto/html/header.ph
   </table>
 
 </div>
-<?php else : ?>
-  <p>Debes ser administrador para realizar esta acción</p>
-
 <?php endif; 
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";?>

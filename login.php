@@ -11,9 +11,11 @@ if (isset($_POST['submit'])){
     if (isset($_POST['email']) && isset($_POST['pass'])){
         if($gestion->check($_POST['email'],$_POST['pass'])){
             $_SESSION['email'] = $_POST['email'];
-            $_SESSION['tipo'] = $gestion->getRole($_POST['email']); 
+            $_SESSION['tipo'] = $gestion->getRole($_POST['email']);
+            writeLog($_POST['email']." ha iniciado sesión"); 
         } else {
             $err = "Usuario o contraseña incorrectos";
+            writeLog($_POST['email']." inicio sesión erróneo"); 
         }
     }
 }

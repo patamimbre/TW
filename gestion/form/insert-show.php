@@ -18,7 +18,9 @@ if (isset($_POST['submit'])) {
     "localizacion"     => $_POST['localizacion']
   );
 
-  $statement = $gestion->add($new_show);
+  $statement = $gestion->add($new_show);    
+  writeLog($_SESSION['email']." ha añadido concierto el día ".$_POST['fecha']);
+
 }
 
 ?>

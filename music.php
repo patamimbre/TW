@@ -3,7 +3,7 @@
 require 'gestion/gestion_discos.php';
 
 $gestion = new GestionDiscos();
-$result = $gestion->to_array();
+$discos = $gestion->all();
 
 include "header.php";
 ?>
@@ -12,7 +12,7 @@ include "header.php";
       <input id="searchInput" onKeyUp="search()" type="text" placeholder="Título o canción">
     </div>
 
-    <?php foreach ($result as $disco): ?>
+    <?php foreach ($discos as $disco): ?>
 
     <form class="discos container" action="compras/form/compra.php" method="POST">
       <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
@@ -33,7 +33,9 @@ include "header.php";
           <div class="col-7 container lista-canciones">
 
 
-          <?php foreach ($disco['canciones'] as $cancion): ?>
+          <?php 
+          $canciones = $gestion->getSongs($disco['id']);
+          foreach ($canciones as $cancion): ?>
 
             <div class="row cancion">
               <div class="col-10 nombre">

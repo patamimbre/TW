@@ -44,6 +44,8 @@ $tipo = is_valid_user($permisos);     #common.php
             Importar</button>
           <button class="col center action" onclick="location.href=''" type="button">
             Exportar</button>
+          <button class="col center action" onclick="location.href=''" type="button">
+            Eliminar</button>
         </div>
         <h5 class="row center compras titulo">Compras</h5>
         <div class="row compras">
@@ -54,7 +56,7 @@ $tipo = is_valid_user($permisos);     #common.php
         </div>
         <h5 class="row center eventos titulo">Eventos</h5>
         <div class="row eventos usuarios">
-          <button class="col center action" onclick="location.href=''" type="button">
+          <button class="col center action" onclick="location.href='/~germancastro1718/proyecto/log.php'" type="button">
             Visualizar log de eventos</button>
         </div>
       </div>

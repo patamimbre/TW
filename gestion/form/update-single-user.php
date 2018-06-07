@@ -21,6 +21,7 @@ if (isset($_POST['submit'])) {
     ];
 
     $statement = $gestion->modifyUser($data);
+    writeLog($_SESSION['email']." ha editado el usuario id:".$_POST['id']);
 
 }
 

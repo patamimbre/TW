@@ -15,6 +15,7 @@ $statement = false;
 if (isset($_GET["id"])) {
   if ($statement = $gestion->deleteUser($_GET["id"])){
     $success = "Usuario eliminado correctamente";
+    writeLog($_SESSION['email']." ha eliminado el usuario id:".$_GET['id']);
   } else {
     $success = "Error al eliminar usuario";
   }

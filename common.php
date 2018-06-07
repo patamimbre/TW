@@ -1,5 +1,7 @@
 <?php
 
+# Debe crearse la sesión en cada página para poder
+# acceder a $_SESSION desde cualquiera
 	session_start();
 
 	if (empty($_SESSION['csrf'])) {
@@ -13,17 +15,42 @@
 	}
 
 
-/**
- * Escapes HTML for output
- */
 
+
+# Escapa HTML para la salida
 function escape($html) {
     return htmlspecialchars($html, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
 }
 
+# Devuelve en un array cada linea del log
+# [ [fecha1,linea1], [fecha2,linea2] ... ]
+function viewLog(){
+	$log_file = "/home/alumnos/1718/germancastro1718/public_html/proyecto/log.txt";
+	$handle = fopen($log_file, "r");
+	$data = [];
+	if ($handle) {
+		while (($line = fgets($handle)) !== false) {
+			$data []= explode('|', $line);
+		}
+		fclose($handle);
+		return $data;
+	}
+	return false;
+}
+
+function writeLog($line){
+	$log_file = "/home/alumnos/1718/germancastro1718/public_html/proyecto/log.txt";
+	$text = '['.date("d/m/Y H:i:s").']| '.$line."\n";
+	#[fecha] $line
+	file_put_contents($log_file, $text, FILE_APPEND);
+   
+}
+
+
 function logout(){
 	if (isset($_SESSION['email'])){
 		//Unset session variables
+		$email = $_SESSION['email'];
 		$_SESSION = array();
 		//Delete cookie if exist
 		if (ini_get("session.use_cookies")) {
@@ -35,7 +62,8 @@ function logout(){
 		}
 		// Destroy the session
 		session_destroy();
-
+		
+		writeLog($email." ha cerrado sesión");
 		return true;
 	} else {
 		return false;

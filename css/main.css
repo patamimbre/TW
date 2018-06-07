@@ -50,7 +50,7 @@ footer a:hover {
 .disco,
 .conciertos,
 .acciones,
-.pedido,
+.pedido
  {
   background-color: #1d1d1d;
   border: 5px solid #B8860B;
@@ -62,11 +62,15 @@ footer a:hover {
   padding:1rem 2rem;
 }
 
+.cancion_editar {
+  padding: 1.2rem 0;
+  border-top: 1px solid #B8860B;
+}
 
 .disco h4,
 .disco p,
 .conciertos p,
-.acciones h5
+.acciones h5,
 .records h2 {
     padding: 0.8rem;
     margin: 0;

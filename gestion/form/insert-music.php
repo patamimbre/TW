@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
   
 
   $statement = $gestion->add($new_disk, $songs);
+  writeLog($_SESSION['email']." ha insertado el disco ".$_POST['nombre']);
 
 }
 
@@ -59,9 +60,9 @@ if (isset($_POST['submit'])) {
       </button>
       <div class="cancion">
         <label for="nombre">Nombre</label>
-        <input type="text" name="nombre-cancion[]" id="nombre-cancion">
+        <input type="text" name="nombre-cancion" id="nombre-cancion">
         <label for="duracion">Duración</label>
-        <input type="text" name="duracion-cancion[]" id="duracion-cancion">
+        <input type="text" name="duracion-cancion" id="duracion-cancion">
       </div>
     </div>
 
@@ -76,7 +77,7 @@ if (isset($_POST['submit'])) {
           var max_fields      = 20; //maximum input boxes allowed
           var wrapper         = $(".canciones"); //Fields wrapper
           var add_button      = $("#btnAddSong"); //Add button ID
-          var newSong = '<div class="cancion"><label for="nombre">Nombre</label><input type="text" name="nombre-cancion[]" id="nombre-cancion"><label for="duracion">Duración</label><input type="text" name="duracion-cancion[]" id="duracion-cancion"></div>';
+          var newSong = '<div class="cancion"><label for="nombre">Nombre</label><input type="text" name="nombre-cancion" id="nombre-cancion"><label for="duracion">Duración</label><input type="text" name="duracion-cancion" id="duracion-cancion"></div>';
              
           var x = 1; //initlal text box count
           $(add_button).click(function(e){ //on add input button click

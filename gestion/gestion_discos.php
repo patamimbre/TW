@@ -16,7 +16,8 @@ class GestionDiscos{
     }
 
     public function all(){
-        $sql = "SELECT * FROM discos";
+        $sql = "SELECT * FROM discos
+                ORDER BY id";
         try {
             $state = $this->connection->prepare($sql);
             $state->execute();
@@ -68,8 +69,53 @@ class GestionDiscos{
         }        
     }
 
-    public function modify($disco){
+    public function getSongs($id_disco){
+        $sql = "SELECT * FROM canciones
+                WHERE id_disco = :id_disco
+                ORDER BY id_disco, id_cancion";
+
+        try {
+            $state = $this->connection->prepare($sql);
+            $state->bindParam(':id_disco', $id_disco);
+            $state->execute();
+            return $state->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        } catch (PDOStatement $e) {
+            return false;
+        }        
+    }
+
+    public function modify($disco, $canciones){
+        $correcto = false;
+        foreach($canciones as $c){
+            $sql = " UPDATE canciones SET
+                        id_disco = :id_disco,
+                        nombre = :nombre,
+                        duracion = :duracion
+                    WHERE id_cancion = :id_cancion";
+            try{
+                $statement = $this->connection->prepare($sql);
+                $correcto = $statement->execute($c);
+            } catch(PDOException $error) {
+                return false;
+            }
+        }
         
+        $sql = " UPDATE discos SET
+                        nombre = :nombre,
+                        anio_publicacion = :anio_publicacion,
+                        caratula = :caratula,
+                        precio = :precio
+                    WHERE id = :id";
+        try{
+            $statement = $this->connection->prepare($sql);
+            $correcto = $statement->execute($disco);
+        } catch(PDOException $error) {
+            return false;
+        }
+
+        return $correcto;
     }
 
     public function to_array(){

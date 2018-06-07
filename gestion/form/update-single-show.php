@@ -19,6 +19,8 @@ if (isset($_POST['submit'])) {
     ];
 
     $statement = $gestion->modify($data);
+    writeLog($_SESSION['email']." ha editado el concierto id:".$_POST['id']);
+
 }
 
 if (isset($_GET['id'])) {
