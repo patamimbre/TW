@@ -13,25 +13,27 @@ if (isset($_POST['submit'])) {
   if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
   //nuevo disco
-  $new_disk = array(
+  $disco = array(
     "nombre"            => $_POST['nombre'],
     "anio_publicacion"  => $_POST['anio_publicacion'],
-    "caratura"          => $_POST['caratura'],
+    "caratula"          => $_POST['caratula'],
     "precio"            => $_POST['precio']
   );
 
-
-
-  //lista de canciones
-  $songs = array();
-  for ($i=0; $i < sizeof($_POST['nombre_cancion[]']); $i++){
-    echo "<br>".$_POST['nombre_cancion'][$i];
+  $canciones = [];
+  foreach ($_POST as $key=>$value){
+    if (strpos($key, 'nombre-cancion') !== false){
+      $id = str_replace('nombre-cancion-','',$key);
+      $cancion = [
+        "nombre" => $_POST["nombre-cancion-$id"],
+        "duracion" => $_POST["duracion-cancion-$id"]
+      ];
+      $canciones []= $cancion;
+    }
   }
-  
 
-  $statement = $gestion->add($new_disk, $songs);
+  $statement = $gestion->add($disco, $canciones);
   writeLog($_SESSION['email']." ha insertado el disco ".$_POST['nombre']);
-
 }
 
 ?>
@@ -41,7 +43,7 @@ if (isset($_POST['submit'])) {
     <blockquote class="center"><?php echo escape($_POST['nombre']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
-  <h2>Add a user</h2>
+  <h2>Insertar disco</h2>
 
   <form class="nuevo-disco" method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
@@ -49,21 +51,19 @@ if (isset($_POST['submit'])) {
     <input type="text" name="nombre" id="nombre">
     <label for="anio_publicacion">Año de publicación</label>
     <input type="text" name="anio_publicacion" id="anio_publicacion">
-    <label for="caratura">URL carátula</label>
-    <input type="text" name="caratura" id="caratura">
+    <label for="caratula">URL carátula</label>
+    <input type="text" name="caratula" id="caratula">
     <label for="precio">Precio</label>
     <input type="text" name="precio" id="precio">
     <div class="canciones container">
-      <h5>Canciones en el disco</h5>
-      <button id="btnAddSong">
-        Añadir otra canción
+      <div class="row cabecera-canciones">
+      <h5 class="col center">Canciones en el disco</h5>
+      <button class="col center" id="btnAddSong">
+        Añadir canción
       </button>
-      <div class="cancion">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre-cancion" id="nombre-cancion">
-        <label for="duracion">Duración</label>
-        <input type="text" name="duracion-cancion" id="duracion-cancion">
       </div>
+
+
     </div>
 
 
@@ -77,12 +77,12 @@ if (isset($_POST['submit'])) {
           var max_fields      = 20; //maximum input boxes allowed
           var wrapper         = $(".canciones"); //Fields wrapper
           var add_button      = $("#btnAddSong"); //Add button ID
-          var newSong = '<div class="cancion"><label for="nombre">Nombre</label><input type="text" name="nombre-cancion" id="nombre-cancion"><label for="duracion">Duración</label><input type="text" name="duracion-cancion" id="duracion-cancion"></div>';
-             
           var x = 1; //initlal text box count
+             
           $(add_button).click(function(e){ //on add input button click
               e.preventDefault();
               if(x < max_fields){ //max input box allowed
+                  var newSong = '<div class="cancion row"><label for="nombre">Nombre</label><input type="text" name="nombre-cancion-'+x+'"><label for="duracion">Duración</label><input type="text" name="duracion-cancion-'+x+'" placeholder="hh:mm:ss"></div>';
                   x++; //text box increment
                   $(wrapper).append(newSong); //add input box
               }

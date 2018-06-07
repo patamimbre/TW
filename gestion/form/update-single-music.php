@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
       "precio"     => $_POST['precio']
     ];
     
-    //array de canciones limpio
+    //array de canciones
     $canciones = [];
 
     foreach ($_POST as $key=>$value){

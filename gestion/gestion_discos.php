@@ -30,8 +30,35 @@ class GestionDiscos{
         }
     }
 
-    public function add($disco, $array_canciones){
+    public function add($disco, $canciones){
+        $correcto = false;
+        $sql_disco = "INSERT INTO discos
+                    (nombre, anio_publicacion, caratula, precio)
+                    VALUES
+                    (:nombre, :anio_publicacion, :caratula, :precio)";
+        try{
+            $statement = $this->connection->prepare($sql_disco);
+            $correcto = $statement->execute($disco);
+        } catch(PDOException $error) {
+            return false;
+        }
 
+        $id_disco = $this->getLastID();
+        
+        foreach($canciones as $c){
+            $c['id_disco'] = $id_disco;
+            $sql_canciones = " INSERT INTO canciones
+                            (id_disco, nombre, duracion) VALUES
+                            (:id_disco, :nombre, :duracion)";
+
+            try{
+                $statement = $this->connection->prepare($sql_canciones);
+                $correcto = $statement->execute($c);
+            } catch(PDOException $error) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public function delete($id){
@@ -62,6 +89,20 @@ class GestionDiscos{
             $state->bindParam(':id', $id);
             $state->execute();
             return $state->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return false;
+        } catch (PDOStatement $e) {
+            return false;
+        }        
+    }
+
+    public function getLastID(){
+        $sql = "SELECT MAX(id) FROM discos";
+
+        try {
+            $state = $this->connection->prepare($sql);
+            $state->execute();
+            return $state->fetchColumn();
         } catch (PDOException $e) {
             return false;
         } catch (PDOStatement $e) {
