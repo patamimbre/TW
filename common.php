@@ -22,6 +22,13 @@ function escape($html) {
     return htmlspecialchars($html, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
 }
 
+# Intercambia 2 variables
+function swap(&$x,&$y) {
+    $tmp=$x;
+    $x=$y;
+    $y=$tmp;
+}
+
 # Devuelve en un array cada linea del log
 # [ [fecha1,linea1], [fecha2,linea2] ... ]
 function viewLog(){

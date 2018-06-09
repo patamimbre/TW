@@ -1,20 +1,76 @@
 <?php
-
+include "header.php";
 require 'gestion/gestion_discos.php';
 
 $gestion = new GestionDiscos();
 $discos = $gestion->all();
 
-include "header.php";
+
+if (isset($_POST['submit'])){
+  $coincidencias = [];
+  if (!empty($_POST['search_string'])){
+    $string = strtolower(escape($_POST['search_string']));
+
+    foreach($discos as $disco){
+      if (strpos(strtolower($disco['nombre']), $string) !== false){
+        $coincidencias []= $disco;
+      }
+      else{
+        # Si no coincide en el nombre, se comprueban los nombres de canciones
+        $canciones = $gestion->getSongs($disco['id']);    
+
+        foreach($canciones as $cancion){
+          if (strpos(strtolower($cancion['nombre']), $string) !== false){
+            $coincidencias []= $disco;
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  if (isset($_POST['fecha1']) && isset($_POST['fecha2'])){
+    $mayor = strtotime($_POST['fecha1']);
+    $menor = strtotime($_POST['fecha2']);    
+    
+    if ($menor > $mayor)
+      swap($mayor,$menor);
+    
+    foreach($discos as $disco){
+      if ( $disco['anio_publicacion'] >= date('Y',$menor) &&
+           $disco['anio_publicacion'] <= date('Y',$mayor) ) {
+        $coincidencias []= $disco;  
+      }
+
+    }
+    
+    if (!empty($coincidencias))
+      $discos = array_unique($coincidencias, SORT_REGULAR);
+  }
+
+}
+
 ?>
 
-    <div class="buscador container center">
-      <input id="searchInput" onKeyUp="search()" type="text" placeholder="Título o canción">
-    </div>
+    <form class="buscador" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="POST">
+      <input class="row" name="search_string" type="text" placeholder="Título o canción">
+      <h7 class="center">Busca entre 2 fechas</h7>
+      <div class="row buscador fechas">
+        <div class="col center">
+          <input type="date" name="fecha1" id="fecha1">
+        </div>
+        <div class="col center">
+        <input type="date" name="fecha2" id="fecha2">
+        </div>
+      </div>
+      <div class="row center submit">
+        <input type="submit" name="submit" value="Buscar">
+      </div>
+    </form>
 
     <?php foreach ($discos as $disco): ?>
 
-    <form class="discos container" action="compras/form/compra.php" method="POST">
+    <form class="discos row container" action="compras/form/compra.php" method="POST">
       <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
 
       <div class="disco container">
@@ -33,8 +89,8 @@ include "header.php";
           <div class="col-7 container lista-canciones">
 
 
-          <?php 
-          $canciones = $gestion->getSongs($disco['id']);
+          <?php
+          $canciones = $gestion->getSongs($disco['id']); 
           foreach ($canciones as $cancion): ?>
 
             <div class="row cancion">
