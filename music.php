@@ -53,9 +53,11 @@ if (isset($_POST['submit'])){
 ?>
 
     <form class="buscador" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="POST">
-      <input class="row" name="search_string" type="text" placeholder="Título o canción">
+      <div class="row barra-busqueda">
+        <input  name="search_string" type="text" placeholder="Título o canción">
+      </div>
       <h7 class="center">Busca entre 2 fechas</h7>
-      <div class="row buscador fechas">
+      <div class="row fechas">
         <div class="col center">
           <input type="date" name="fecha1" id="fecha1">
         </div>

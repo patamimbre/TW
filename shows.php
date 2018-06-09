@@ -46,7 +46,7 @@ if (isset($_POST['submit'])){
     <form class="buscador" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="POST">
       
       <h7 class="center">Buscar por lugar</h7>
-      <div class="row buscador lugar">
+      <div class="row lugar">
         <?php 
           foreach ($conciertos as $concierto){
             $lugar = escape($concierto['localizacion']);
@@ -60,7 +60,7 @@ if (isset($_POST['submit'])){
       </div>
 
       <h7 class="center">Busca entre 2 fechas</h7>
-      <div class="row buscador fechas">
+      <div class="row fechas">
         <div class="col center">
           <input type="date" name="fecha1" id="fecha1">
         </div>
