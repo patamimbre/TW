@@ -19,3 +19,6 @@
 [07/06/2018 20:30:20]| juan@ugr.es ha iniciado sesión
 [07/06/2018 21:17:26]| juan@ugr.es ha rechazado el pedido 5
 [07/06/2018 21:17:44]| juan@ugr.es ha aceptado el pedido 6
+[09/06/2018 17:52:47]| kisos@gmail.com inicio sesión erróneo
+[09/06/2018 17:52:56]| kisos@gmail.com ha iniciado sesión
+[09/06/2018 17:52:59]| kisos@gmail.com ha cerrado sesión

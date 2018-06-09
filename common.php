@@ -29,6 +29,11 @@ function swap(&$x,&$y) {
     $y=$tmp;
 }
 
+# busca recursivamente un elemento en un array multidimensional
+function in_array_r($item , $array){
+    return preg_match('/"'.preg_quote($item, '/').'"/i' , json_encode($array));
+}
+
 # Devuelve en un array cada linea del log
 # [ [fecha1,linea1], [fecha2,linea2] ... ]
 function viewLog(){
