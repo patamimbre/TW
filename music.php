@@ -47,7 +47,6 @@ if (isset($_POST['submit'])){
     if (!empty($coincidencias))
       $discos = array_unique($coincidencias, SORT_REGULAR);
   }
-
 }
 
 ?>
@@ -90,7 +89,6 @@ if (isset($_POST['submit'])){
           </div>
           <div class="col-7 container lista-canciones">
 
-
           <?php
           $canciones = $gestion->getSongs($disco['id']); 
           foreach ($canciones as $cancion): ?>
@@ -105,13 +103,9 @@ if (isset($_POST['submit'])){
             </div>
 
           <?php endforeach; 
-          
           echo '<input type="hidden" name="id" value="'.$disco['id'].'" >';
-          
           ?>
-
           
-
           </div>
         </div>
         <div class="row center submit">
@@ -120,11 +114,9 @@ if (isset($_POST['submit'])){
       </div>
     </form>
 
-
     <?php endforeach; ?>
 
   </div>
-
 
 <?php
 include "footer.html";
