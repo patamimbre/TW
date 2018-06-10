@@ -88,8 +88,8 @@ button:hover {
     font-size: 1.1rem;
 }
 
-.disco .anio {
-    font-size: 1.25em;
+.disco .anio p {
+    font-size: 1.2em;
 }
 
 .caratula>img {
@@ -180,4 +180,17 @@ footer {
 footer a {
     color: white;
     text-decoration: none;
+}
+
+button {
+    background: white;
+}
+
+.error {
+    border-color: #B8860B;
+}
+
+.mensaje-error {
+    background-color: #B8860B;
+    color: white;
 }

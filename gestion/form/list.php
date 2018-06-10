@@ -7,6 +7,3 @@
     <?php endforeach; ?>
     <input type="submit" name="submit" value="Submit">
 </form>
-
-<button onclick="location.href='/~germancastro1718/proyecto/admin.php'" type="button">
-     Volver</button>

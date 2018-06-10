@@ -40,11 +40,11 @@ $tipo = is_valid_user($permisos);     #common.php
         </div>
         <h5 class="row center db titulo">DB</h5>
         <div class="row db">
-          <button class="col center action" onclick="location.href=''" type="button">
+          <button class="col center action" onclick="location.href='/~germancastro1718/proyecto/gestion/db.php?action=import'" type="button">
             Importar</button>
-          <button class="col center action" onclick="location.href=''" type="button">
+          <button class="col center action" onclick="location.href='/~germancastro1718/proyecto/gestion/db.php?action=export'" type="button">
             Exportar</button>
-          <button class="col center action" onclick="location.href=''" type="button">
+          <button class="col center action" onclick="location.href='/~germancastro1718/proyecto/gestion/db.php?action=erase'" type="button">
             Eliminar</button>
         </div>
         <h5 class="row center compras titulo">Compras</h5>

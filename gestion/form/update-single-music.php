@@ -84,9 +84,6 @@ if (isset($_GET['id'])) {
     <input type="submit" name="submit" value="Submit">
 </form>
 
-<button onclick="location.href='/~germancastro1718/proyecto/admin.php'" type="button">
-     Volver</button>
-
 <?php
 include "/home/alumnos/1718/germancastro1718/public_html/proyecto/footer.html";
 ?>

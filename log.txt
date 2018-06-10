@@ -22,3 +22,94 @@
 [09/06/2018 17:52:47]| kisos@gmail.com inicio sesión erróneo
 [09/06/2018 17:52:56]| kisos@gmail.com ha iniciado sesión
 [09/06/2018 17:52:59]| kisos@gmail.com ha cerrado sesión
+[09/06/2018 18:39:10]| kisos@gmail.com ha iniciado sesión
+[09/06/2018 18:42:08]| kisos@gmail.com ha insertado el usuario usuario@admin.com
+[09/06/2018 18:42:51]| kisos@gmail.com ha insertado el usuario usuario@gestorcompras.com
+[09/06/2018 18:43:14]| kisos@gmail.com ha insertado el usuario usuario@registrado.com
+[09/06/2018 18:44:00]| kisos@gmail.com ha editado el usuario id:26
+[09/06/2018 18:45:39]| kisos@gmail.com ha editado el usuario id:27
+[09/06/2018 19:55:17]| juan@ugr.es ha cerrado sesión
+[09/06/2018 19:55:40]| usuario@admin.com inicio sesión erróneo
+[09/06/2018 19:56:07]| kisos@gmail.com ha iniciado sesión
+[09/06/2018 19:57:35]| kisos@gmail.com ha editado el usuario id:26
+[09/06/2018 19:57:48]| kisos@gmail.com ha cerrado sesión
+[09/06/2018 19:58:02]| usuario@admin.com ha iniciado sesión
+[09/06/2018 19:59:29]| usuario@admin.com ha cerrado sesión
+[09/06/2018 19:59:44]| juan@ugr.es ha iniciado sesión
+[09/06/2018 20:48:36]| juan@ugr.es ha cerrado sesión
+[09/06/2018 20:48:49]| usuario@admin.com ha iniciado sesión
+[09/06/2018 20:51:22]| usuario@admin.com ha añadido concierto el día 2018-06-17
+[09/06/2018 20:51:55]| kisos@gmail.com ha añadido concierto el día 
+[09/06/2018 21:11:15]| kisos@gmail.com ha añadido concierto el día 
+[09/06/2018 22:20:52]| usuario@admin.com ha insertado el usuario 
+[09/06/2018 22:24:30]| usuario@admin.com ha insertado el usuario 
+[09/06/2018 22:26:53]| usuario@admin.com ha insertado el usuario 
+[09/06/2018 22:27:25]| usuario@admin.com ha insertado el usuario 
+[09/06/2018 22:27:41]| usuario@admin.com ha insertado el usuario 
+[09/06/2018 22:27:53]|  ha insertado el usuario alegp97@gmail.com
+[09/06/2018 22:28:46]|  ha insertado el usuario alberta@ugr.es
+[09/06/2018 22:31:05]|  ha insertado el usuario sad@www.com
+[09/06/2018 22:31:41]|  ha insertado el usuario alegp97@gmail.com
+[09/06/2018 22:33:05]| usuario@admin.com ha insertado el usuario alegp97@gmail.com
+[09/06/2018 22:34:11]| usuario@admin.com ha insertado el usuario alberta@gmail.com
+[09/06/2018 22:34:55]| kisos@gmail.com ha insertado el usuario ads@rradf.com
+[09/06/2018 22:38:38]| usuario@admin.com ha insertado el usuario alegp97@gmail.com
+[09/06/2018 22:40:18]| usuario@admin.com ha insertado el usuario alegp97@gmail.com
+[09/06/2018 22:41:19]| usuario@admin.com ha eliminado el usuario id:29
+[09/06/2018 22:41:21]| usuario@admin.com ha eliminado el usuario id:30
+[09/06/2018 22:41:29]| usuario@admin.com ha eliminado el usuario id:28
+[09/06/2018 22:41:45]| usuario@admin.com ha insertado el usuario alegp97@gmail.com
+[09/06/2018 22:43:46]| usuario@admin.com ha insertado el usuario alberta@gmail.com
+[09/06/2018 23:37:14]| usuario@admin.com ha insertado el disco 
+[09/06/2018 23:37:20]| usuario@admin.com ha insertado el disco 
+[09/06/2018 23:38:52]| usuario@admin.com ha insertado el disco 
+[09/06/2018 23:38:57]| usuario@admin.com ha insertado el disco 
+[09/06/2018 23:50:29]| usuario@admin.com ha insertado el disco album
+[09/06/2018 23:52:38]| kisos@gmail.com ha iniciado sesión
+[09/06/2018 23:54:20]| usuario@admin.com ha insertado el disco Alejandro
+[09/06/2018 23:59:06]| usuario@admin.com ha editado el disco id:4
+[10/06/2018 00:01:23]| usuario@admin.com ha insertado el disco Alejandro
+[10/06/2018 00:09:29]| kisos@gmail.com ha cerrado sesión
+[10/06/2018 00:19:56]| usuario@admin.com ha insertado el disco alberta
+[10/06/2018 11:31:48]| usuario@admin.com ha iniciado sesión
+[10/06/2018 12:08:33]| usuario@admin.com ha cerrado sesión
+[10/06/2018 12:08:53]| usuario@admin.com ha iniciado sesión
+[10/06/2018 12:44:18]| usuario@admin.com ha eliminado el párrafo1
+[10/06/2018 12:44:18]| usuario@admin.com ha eliminado el párrafo2
+[10/06/2018 12:44:25]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:44:28]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:44:31]| usuario@admin.com ha eliminado el párrafo4
+[10/06/2018 12:44:31]| usuario@admin.com ha eliminado el párrafo5
+[10/06/2018 12:46:43]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:47:03]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:53:57]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:55:53]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:57:06]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 12:59:48]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 13:00:21]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 13:00:47]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 13:03:03]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 13:04:16]| usuario@admin.com ha cerrado sesión
+[10/06/2018 13:07:05]| usuario@admin.com ha iniciado sesión
+[10/06/2018 13:07:15]| usuario@admin.com ha insertado un párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:07:21]| usuario@admin.com ha modificado el párrafo
+[10/06/2018 13:08:20]| usuario@admin.com ha modificado el párrafo6
+[10/06/2018 13:08:20]| usuario@admin.com ha modificado el párrafo7
+[10/06/2018 13:08:20]| usuario@admin.com ha modificado el párrafo8
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo9
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo10
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo11
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo12
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo13
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo14
+[10/06/2018 13:08:21]| usuario@admin.com ha modificado el párrafo15
+[10/06/2018 13:08:28]| usuario@admin.com ha eliminado el párrafo15
